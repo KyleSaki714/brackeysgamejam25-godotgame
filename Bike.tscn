@@ -1,0 +1,60 @@
+[gd_scene load_steps=6 format=3 uid="uid://dg6p1qquywry7"]
+
+[ext_resource type="Script" path="res://Bike.gd" id="1_i3ogk"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_q1e04"]
+friction = 0.1
+
+[sub_resource type="BoxMesh" id="BoxMesh_b8d4s"]
+size = Vector3(2, 1, 0.5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3qqb4"]
+albedo_color = Color(0.277528, 0.277528, 0.277528, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_ybs2l"]
+material = SubResource("StandardMaterial3D_3qqb4")
+
+[node name="Bike" type="VehicleBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.711944, 0)
+axis_lock_linear_z = true
+axis_lock_angular_x = true
+axis_lock_angular_y = true
+mass = 15.0
+physics_material_override = SubResource("PhysicsMaterial_q1e04")
+center_of_mass_mode = 1
+center_of_mass = Vector3(-0.94, 0, 0)
+script = ExtResource("1_i3ogk")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.950065, 0)
+mesh = SubResource("BoxMesh_b8d4s")
+
+[node name="CollisionPolygon3D" type="CollisionPolygon3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.520957, 0)
+polygon = PackedVector2Array(1.71806, -0.710442, 2.73276, -0.687381, 3.0904, -0.203935, 3.12177, 0.51768, 2.68253, 0.988299, 1.99229, 1.01967, 0.564742, 1.08242, 0.596777, 3.70772, -0.417918, 3.00436, -0.977333, 1.08468, -2.36878, 1.01967, -3.04333, 0.611804, -3.0904, -0.0313746, -2.72959, -0.596117, -2.02366, -0.611804, -0.957042, 0.327314, 0.749491, 0.327314)
+
+[node name="VehicleWheel3D" type="VehicleWheel3D" parent="."]
+transform = Transform3D(-6.60333e-08, 0, 1.51066, 0, 1.51066, 0, -1.51066, 0, -6.60333e-08, 2.29294, 0.167224, 0)
+use_as_traction = true
+wheel_radius = 0.6
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="VehicleWheel3D"]
+transform = Transform3D(-5.32736e-08, -0.127698, -5.32736e-08, 1.21876, -5.58184e-09, 5.32736e-08, -5.32736e-08, -5.58184e-09, 1.21876, 0, 0, 0)
+mesh = SubResource("CylinderMesh_ybs2l")
+
+[node name="VehicleWheel3D2" type="VehicleWheel3D" parent="."]
+transform = Transform3D(-6.60333e-08, 0, 1.51066, 0, 1.51066, 0, -1.51066, 0, -6.60333e-08, -2.25983, 0.167224, 0)
+use_as_traction = true
+wheel_radius = 0.6
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="VehicleWheel3D2"]
+transform = Transform3D(-5.32736e-08, -0.127698, -5.32736e-08, 1.21876, -5.58184e-09, 5.32736e-08, -5.32736e-08, -5.58184e-09, 1.21876, 0, 0, 0)
+mesh = SubResource("CylinderMesh_ybs2l")
+
+[node name="CamFollowTarget" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.26414, 4.57778, 45.572)
+
+[node name="CamLookTarget" type="Node3D" parent="."]
+
+[node name="test" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.936092, 0, 0)
