@@ -1,20 +1,28 @@
-[gd_scene load_steps=17 format=3 uid="uid://cde7rcehautca"]
+[gd_scene load_steps=20 format=3 uid="uid://cde7rcehautca"]
 
 [ext_resource type="Texture2D" uid="uid://du8r73utf7khp" path="res://icon.svg" id="1_ibwgx"]
 [ext_resource type="Script" path="res://Bike.gd" id="2_q0epj"]
+[ext_resource type="Script" path="res://GameCamera.gd" id="3_o6smy"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_5rr2k"]
-size = Vector3(100, 1, 100)
+size = Vector3(100, 1, 10)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jyevl"]
 albedo_texture = ExtResource("1_ibwgx")
 
 [sub_resource type="BoxMesh" id="BoxMesh_navdk"]
 material = SubResource("StandardMaterial3D_jyevl")
-size = Vector3(100, 1, 100)
+size = Vector3(100, 1, 10)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_y8cv6"]
-size = Vector3(100, 1, 100)
+[sub_resource type="BoxShape3D" id="BoxShape3D_b5bo4"]
+size = Vector3(100, 1, 10)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_wus84"]
+size = Vector3(10, 1, 10)
+
+[sub_resource type="BoxMesh" id="BoxMesh_glb41"]
+material = SubResource("StandardMaterial3D_jyevl")
+size = Vector3(10, 1, 10)
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_q1e04"]
 friction = 0.1
@@ -36,7 +44,6 @@ material = SubResource("StandardMaterial3D_3qqb4")
 ambient_light_source = 3
 ambient_light_color = Color(1, 1, 1, 1)
 ambient_light_sky_contribution = 0.34
-ambient_light_energy = 1.95
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_negsd"]
 height = 1.83881
@@ -66,10 +73,19 @@ mesh = SubResource("BoxMesh_navdk")
 transform = Transform3D(0.990748, 0.135716, 0, -0.135716, 0.990748, 0, 0, 0, 1, 0, -1.39805, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Hill2"]
-shape = SubResource("BoxShape3D_y8cv6")
+shape = SubResource("BoxShape3D_b5bo4")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Hill2"]
 mesh = SubResource("BoxMesh_navdk")
+
+[node name="ramp" type="StaticBody3D" parent="."]
+transform = Transform3D(0.965926, -0.258819, 0, 0.258819, 0.965926, 0, 0, 0, 1, 27.8035, -3.41747, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ramp"]
+shape = SubResource("BoxShape3D_wus84")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="ramp"]
+mesh = SubResource("BoxMesh_glb41")
 
 [node name="Bike" type="VehicleBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.711944, 0)
@@ -106,8 +122,10 @@ wheel_radius = 0.6
 transform = Transform3D(-5.32736e-08, -0.127698, -5.32736e-08, 1.21876, -5.58184e-09, 5.32736e-08, -5.32736e-08, -5.58184e-09, 1.21876, 0, 0, 0)
 mesh = SubResource("CylinderMesh_ybs2l")
 
-[node name="Camera3D" type="Camera3D" parent="Bike"]
-transform = Transform3D(0.884443, 0.120778, -0.450748, 0, 0.965926, 0.258819, 0.466649, -0.228911, 0.854306, -9.51061, 3.09108, 16.447)
+[node name="CamFollowTarget" type="Node3D" parent="Bike"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.26414, 4.57778, 45.572)
+
+[node name="CamLookTarget" type="Node3D" parent="Bike"]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_3mh0e")
@@ -131,3 +149,15 @@ shape = SubResource("SphereShape3D_jh2cc")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="spherebump"]
 mesh = SubResource("SphereMesh_gon61")
+
+[node name="Camera3D" type="Camera3D" parent="." node_paths=PackedStringArray("_follow_target", "_look_target")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.2336, 2.53086, 49.7549)
+current = true
+fov = 49.6
+script = ExtResource("3_o6smy")
+_follow_target = NodePath("../Bike/CamFollowTarget")
+_look_target = NodePath("../Bike/CamLookTarget")
+_camSpeed = 0.335
+
+[node name="Camera" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.2336, 2.53086, 49.7549)
