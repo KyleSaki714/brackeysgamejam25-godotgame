@@ -5,6 +5,8 @@ extends VehicleBody3D
 @export var _torquePower = 150 # "tilt" power
 @export var COMSHIFT = 1 # how far from the center the center of mass shifts while tilting
 @export var COMSHIFTACCEL = 0.1 # how fast the center of mass shifts when tilting
+@export var JUMPFORCE = 300
+
 
 var _currentCenterOfMassShift: float = 0
 
@@ -36,7 +38,11 @@ func _physics_process(delta: float):
 		center_of_mass = Vector3.ZERO
 		_currentCenterOfMassShift = 0
 		center_of_mass_mode = CENTER_OF_MASS_MODE_AUTO
-		
+	
+	# - JUMP -
+	var jumpBtn = Input.is_action_just_pressed("jump")
+	if (jumpBtn):
+		apply_impulse(transform.basis.z * JUMPFORCE)
 	
 	
 	
