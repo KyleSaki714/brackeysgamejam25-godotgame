@@ -1,0 +1,118 @@
+[gd_scene load_steps=15 format=3 uid="uid://cde7rcehautca"]
+
+[ext_resource type="Script" path="res://Bike.gd" id="2_q0epj"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_5rr2k"]
+size = Vector3(100, 1, 100)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jyevl"]
+albedo_color = Color(0, 0.501961, 0.0745098, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_navdk"]
+material = SubResource("StandardMaterial3D_jyevl")
+size = Vector3(100, 1, 100)
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_q1e04"]
+friction = 0.5
+
+[sub_resource type="BoxMesh" id="BoxMesh_b8d4s"]
+size = Vector3(2, 1, 0.5)
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_5gffx"]
+radius = 1.2794
+height = 5.65414
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3qqb4"]
+albedo_color = Color(0.277528, 0.277528, 0.277528, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_ybs2l"]
+material = SubResource("StandardMaterial3D_3qqb4")
+
+[sub_resource type="Environment" id="Environment_3mh0e"]
+ambient_light_source = 3
+ambient_light_color = Color(1, 1, 1, 1)
+ambient_light_sky_contribution = 0.19
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_negsd"]
+height = 1.83881
+radius = 0.866495
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_8gl37"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_jh2cc"]
+radius = 1.0
+
+[sub_resource type="SphereMesh" id="SphereMesh_gon61"]
+radius = 1.0
+height = 2.0
+
+[node name="World" type="Node3D"]
+
+[node name="Hill" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Hill"]
+shape = SubResource("BoxShape3D_5rr2k")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Hill"]
+mesh = SubResource("BoxMesh_navdk")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.884443, 0.120778, -0.450748, 0, 0.965926, 0.258819, 0.466649, -0.228911, 0.854306, -2.69426, 3.80302, 7.88634)
+
+[node name="Bike" type="VehicleBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.711944, 0)
+axis_lock_linear_z = true
+axis_lock_angular_x = true
+axis_lock_angular_y = true
+physics_material_override = SubResource("PhysicsMaterial_q1e04")
+script = ExtResource("2_q0epj")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Bike"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.950065, 0)
+mesh = SubResource("BoxMesh_b8d4s")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Bike"]
+transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 0.0101013, 0.769232, 0)
+shape = SubResource("CapsuleShape3D_5gffx")
+
+[node name="VehicleWheel3D" type="VehicleWheel3D" parent="Bike"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 2, 0.0732398, 0)
+use_as_traction = true
+wheel_radius = 0.6
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Bike/VehicleWheel3D"]
+transform = Transform3D(-5.32736e-08, -0.127698, -5.32736e-08, 1.21876, -5.58184e-09, 5.32736e-08, -5.32736e-08, -5.58184e-09, 1.21876, 0, 0, 0)
+mesh = SubResource("CylinderMesh_ybs2l")
+
+[node name="VehicleWheel3D2" type="VehicleWheel3D" parent="Bike"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -2, 0.0732398, 0)
+use_as_traction = true
+wheel_radius = 0.6
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Bike/VehicleWheel3D2"]
+transform = Transform3D(-5.32736e-08, -0.127698, -5.32736e-08, 1.21876, -5.58184e-09, 5.32736e-08, -5.32736e-08, -5.58184e-09, 1.21876, 0, 0, 0)
+mesh = SubResource("CylinderMesh_ybs2l")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_3mh0e")
+
+[node name="cylinderbump" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -8.92311, -0.532461, 0.677341)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="cylinderbump"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.98207, 0)
+shape = SubResource("CylinderShape3D_negsd")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="cylinderbump"]
+transform = Transform3D(1.68414, 0, 0, 0, 0.90943, 0, 0, 0, 1.72383, 0, 0.973156, 0.453789)
+mesh = SubResource("CylinderMesh_8gl37")
+
+[node name="spherebump" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 5.59714, -0.407314, 0.51568)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="spherebump"]
+shape = SubResource("SphereShape3D_jh2cc")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="spherebump"]
+mesh = SubResource("SphereMesh_gon61")
