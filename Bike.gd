@@ -30,7 +30,7 @@ func _physics_process(delta: float):
 		_currentCenterOfMassShift += tiltAxis * COMSHIFTACCEL
 		_currentCenterOfMassShift = clampf(_currentCenterOfMassShift, COMSHIFT * -1, COMSHIFT)
 		center_of_mass = Vector3(_currentCenterOfMassShift, 0.0, 0.0)
-		print(_currentCenterOfMassShift)
+		#print(_currentCenterOfMassShift)
 		
 	else:
 		center_of_mass = Vector3.ZERO

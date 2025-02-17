@@ -170,3 +170,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.2336, 2.53086, 49.7549)
 
 [node name="GameManager" type="Node3D" parent="."]
 script = ExtResource("4_4my16")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.169, 4.02679, 0)
+
+[node name="CollisionPolygon3D" type="CollisionPolygon3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.871962, 0.454278, -0.793627)
+depth = 3.0
+polygon = PackedVector2Array(5.68502, 2.05532, 10.887, -3.23599, -5.0723, -0.905307, -17.1459, 1.14043, -12.7513, 12.3225, -9.1397, 7.80209, -1.80736, 6.32335)
