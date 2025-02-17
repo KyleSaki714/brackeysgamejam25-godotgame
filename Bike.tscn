@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://dg6p1qquywry7"]
+[gd_scene load_steps=7 format=3 uid="uid://dg6p1qquywry7"]
 
 [ext_resource type="Script" path="res://Bike.gd" id="1_i3ogk"]
+[ext_resource type="Texture2D" uid="uid://du8r73utf7khp" path="res://icon.svg" id="2_3cfmc"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_q1e04"]
 friction = 0.1
@@ -58,3 +59,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.26414, 4.57778, 45.572)
 
 [node name="test" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.936092, 0, 0)
+
+[node name="Icon" type="Sprite2D" parent="."]
+position = Vector2(65, -66)
+texture = ExtResource("2_3cfmc")

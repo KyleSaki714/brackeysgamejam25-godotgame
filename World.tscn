@@ -1,9 +1,10 @@
-[gd_scene load_steps=16 format=3 uid="uid://cde7rcehautca"]
+[gd_scene load_steps=17 format=3 uid="uid://cde7rcehautca"]
 
 [ext_resource type="Texture2D" uid="uid://du8r73utf7khp" path="res://icon.svg" id="1_ibwgx"]
 [ext_resource type="PackedScene" uid="uid://dg6p1qquywry7" path="res://Bike.tscn" id="2_pbg5e"]
 [ext_resource type="Script" path="res://GameCamera.gd" id="3_o6smy"]
 [ext_resource type="Script" path="res://GameManager.gd" id="4_4my16"]
+[ext_resource type="PackedScene" uid="uid://bm4x74g5yu4f7" path="res://Areas/StartRamp.tscn" id="5_2fkej"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_5rr2k"]
 size = Vector3(100, 1, 10)
@@ -59,6 +60,7 @@ transform = Transform3D(0.990748, 0.135716, 0, -0.135716, 0.990748, 0, 0, 0, 1, 
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Hill2"]
 shape = SubResource("BoxShape3D_b5bo4")
+disabled = true
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Hill2"]
 mesh = SubResource("BoxMesh_navdk")
@@ -93,6 +95,7 @@ transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 14.264
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="spherebump"]
 shape = SubResource("SphereShape3D_jh2cc")
+disabled = true
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="spherebump"]
 mesh = SubResource("SphereMesh_gon61")
@@ -104,7 +107,7 @@ fov = 49.6
 script = ExtResource("3_o6smy")
 _follow_target = NodePath("../Bike/CamFollowTarget")
 _look_target = NodePath("../Bike/CamLookTarget")
-_camSpeed = 0.335
+_camSpeed = 0.75
 
 [node name="Camera" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.2336, 2.53086, 49.7549)
@@ -119,5 +122,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.169, 4.02679, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.871962, 0.454278, -0.793627)
 depth = 3.0
 polygon = PackedVector2Array(5.68502, 2.05532, 10.887, -3.23599, -5.0723, -0.905307, -17.1459, 1.14043, -12.7513, 12.3225, -9.1397, 7.80209, -1.80736, 6.32335)
+
+[node name="StartRamp" parent="." instance=ExtResource("5_2fkej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.98064, 0, 0)
 
 [editable path="Bike"]

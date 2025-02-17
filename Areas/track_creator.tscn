@@ -1,0 +1,39 @@
+[gd_scene load_steps=5 format=3 uid="uid://b0lstjsusw1dh"]
+
+[ext_resource type="PackedScene" uid="uid://dg6p1qquywry7" path="res://Bike.tscn" id="1_vnrgh"]
+[ext_resource type="Script" path="res://Areas/Terrain.gd" id="1_xy2c6"]
+
+[sub_resource type="Curve3D" id="Curve3D_xg1po"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -2.64878, -7.92058, 0, -7.50844, 1.32823, 0, 7.50844, -1.32823, 0, 21.1933, -6.26623, 0, 0.1702, 4.48302, 0, -0.1702, -4.48302, 0, 34.0388, -13.7595, 0, 3.33727, 1.25147, 0, -3.33727, -1.25147, 0, 29.8706, -20.0391, 0, 3.48782, -0.320305, 0, -3.48782, 0.320305, 0, 17.5927, -20.7661, 0, 5.42306, -3.33727, 0, -5.42306, 3.33727, 0, -10.7904, -14.4953, 0, 0, 0, 0, 0, 0, 0, -2.64878, -7.92058, 0),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0)
+}
+point_count = 7
+
+[sub_resource type="Curve2D" id="Curve2D_ho6bn"]
+bake_interval = 35.42
+_data = {
+"points": PackedVector2Array(-136.516, 49.2094, 136.516, -49.2094, 86, 134, -142.866, -61.9086, 142.866, 61.9086, 390, 185, 98.4188, -93.6566, -98.4188, 93.6566, 519, 444, 85.7196, 20.6362, -85.7196, -20.6362, 89, 457, 52.3842, 39.685, -52.3842, -39.685, -3, 420, -104.768, 93.6566, 104.768, -93.6566, 86, 134)
+}
+point_count = 6
+
+[node name="TrackCreator" type="Node3D"]
+
+[node name="Terrain" type="StaticBody3D" parent="."]
+script = ExtResource("1_xy2c6")
+
+[node name="CollisionPolygon3D" type="CollisionPolygon3D" parent="Terrain"]
+depth = 3.0
+polygon = PackedVector2Array(0, 0, 0, 0)
+
+[node name="Path3D" type="Path3D" parent="Terrain"]
+curve = SubResource("Curve3D_xg1po")
+
+[node name="Path2D" type="Path2D" parent="Terrain"]
+curve = SubResource("Curve2D_ho6bn")
+
+[node name="Bike" parent="." instance=ExtResource("1_vnrgh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.33828, 0.711944, 0)
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.7804, -10.9366, 24.636)
