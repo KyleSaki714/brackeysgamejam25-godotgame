@@ -6,6 +6,6 @@ extends Camera3D
 
 func _process(delta: float) -> void:
 	var newCamPos = global_position.move_toward(_follow_target.global_position, _camSpeed)
-	print(newCamPos)
+	#print(newCamPos)
 	global_position = newCamPos
 	#look_at(_look_target.global_position)
