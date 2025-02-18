@@ -1,7 +1,8 @@
 extends VehicleBody3D
 
 @export var MAX_STEER = 0.9
-@export var ENGINE_POWER = 300 # max horsepower
+@export var ENGINE_POWER = 150 # max horsepower
+const ENGINE_ACCEL = 25
 @export var _torquePower = 150 # "tilt" power
 @export var COMSHIFT = 1 # how far from the center the center of mass shifts while tilting
 @export var COMSHIFTACCEL = 0.1 # how fast the center of mass shifts when tilting
@@ -16,7 +17,16 @@ var _currentCenterOfMassShift: float = 0
 #}
 
 func _physics_process(delta: float):
-	engine_force = Input.get_axis("backward", "forward") * ENGINE_POWER
+	
+	# - GAS -
+	var cycling = Input.get_axis("backward", "forward")
+	if cycling:
+		engine_force += cycling * ENGINE_ACCEL
+		engine_force = clampf(engine_force, ENGINE_POWER * -1, ENGINE_POWER)
+	else:
+		# coasting
+		engine_force = 0
+	#print(engine_force)
 	
 	# - TILT -
 	# apply torque

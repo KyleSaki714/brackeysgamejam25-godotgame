@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://du8r73utf7khp" path="res://icon.svg" id="2_3cfmc"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_q1e04"]
-friction = 0.1
+friction = 0.4
 
 [sub_resource type="BoxMesh" id="BoxMesh_b8d4s"]
 size = Vector3(2, 1, 0.5)
@@ -25,7 +25,7 @@ physics_material_override = SubResource("PhysicsMaterial_q1e04")
 center_of_mass_mode = 1
 center_of_mass = Vector3(-0.94, 0, 0)
 script = ExtResource("1_i3ogk")
-ENGINE_POWER = 150
+_torquePower = 100
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.950065, 0)
