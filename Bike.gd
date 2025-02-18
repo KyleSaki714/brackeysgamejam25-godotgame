@@ -16,6 +16,13 @@ var _currentCenterOfMassShift: float = 0
 	#DRIVING
 #}
 
+func _integrate_forces(state: PhysicsDirectBodyState3D) -> void:
+		# - SPEED CAP -
+	#linear_velocity.clampf(0, 35.0)
+	#linear_velocity = linear_velocity.clampf(-30.0, 30.0)
+	state.set_linear_velocity(get_linear_velocity().clampf(-30.0, 30.0))
+	print(get_linear_velocity())
+
 func _physics_process(delta: float):
 	
 	# - GAS -
