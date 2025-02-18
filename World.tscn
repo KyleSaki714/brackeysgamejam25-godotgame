@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://du8r73utf7khp" path="res://icon.svg" id="1_ibwgx"]
 [ext_resource type="PackedScene" uid="uid://dg6p1qquywry7" path="res://Bike.tscn" id="2_pbg5e"]
-[ext_resource type="Script" path="res://GameCamera.gd" id="3_o6smy"]
+[ext_resource type="PackedScene" uid="uid://bi7rb6kshvy0f" path="res://GameCamera.tscn" id="3_lk8vx"]
 [ext_resource type="Script" path="res://GameManager.gd" id="4_4my16"]
 [ext_resource type="PackedScene" uid="uid://bm4x74g5yu4f7" path="res://Areas/StartRamp.tscn" id="5_2fkej"]
 
@@ -100,14 +100,7 @@ disabled = true
 [node name="MeshInstance3D" type="MeshInstance3D" parent="spherebump"]
 mesh = SubResource("SphereMesh_gon61")
 
-[node name="Camera3D" type="Camera3D" parent="." node_paths=PackedStringArray("_follow_target", "_look_target")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.2336, 2.53086, 49.7549)
-current = true
-fov = 49.6
-script = ExtResource("3_o6smy")
-_follow_target = NodePath("../Bike/CamFollowTarget")
-_look_target = NodePath("../Bike/CamLookTarget")
-_camSpeed = 0.75
+[node name="GameCamera" parent="." instance=ExtResource("3_lk8vx")]
 
 [node name="Camera" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.2336, 2.53086, 49.7549)

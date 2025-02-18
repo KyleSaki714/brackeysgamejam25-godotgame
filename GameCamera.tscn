@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://bi7rb6kshvy0f"]
+
+[ext_resource type="Script" path="res://GameCamera.gd" id="1_5u8h2"]
+
+[node name="GameCamera" type="Camera3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.2336, 2.53086, 49.7549)
+current = true
+fov = 58.8
+script = ExtResource("1_5u8h2")
+_camSpeed = 0.75

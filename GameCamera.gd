@@ -9,3 +9,8 @@ func _process(delta: float) -> void:
 	#print(newCamPos)
 	global_position = newCamPos
 	#look_at(_look_target.global_position)
+	if Input.is_action_pressed("DEBUG_cam_zoom_in"):
+		fov -= 0.1
+	if Input.is_action_pressed("DEBUG_cam_zoom_out"):
+		fov += 0.1
+	
