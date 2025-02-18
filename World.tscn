@@ -16,6 +16,7 @@ ambient_light_sky_contribution = 0.34
 [node name="Bike" parent="." instance=ExtResource("2_pbg5e")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.21796, 0.711944, 0)
 mass = 20.0
+ENGINE_POWER = 150
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_3mh0e")
@@ -30,8 +31,12 @@ script = ExtResource("4_4my16")
 [node name="AreasContainer" type="Node3D" parent="."]
 
 [node name="StartRamp" parent="AreasContainer" instance=ExtResource("5_2fkej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 58.9711, -4.87364, 0)
 
 [node name="Area1" parent="AreasContainer" instance=ExtResource("5_icdp7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 305.481, -76.2789, 0)
+
+[node name="FirstAreaPoint" type="Node3D" parent="AreasContainer"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 211.907, -69.9431, 0)
 
 [editable path="Bike"]
