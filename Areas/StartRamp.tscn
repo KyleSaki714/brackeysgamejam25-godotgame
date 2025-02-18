@@ -1,10 +1,21 @@
-[gd_scene format=3 uid="uid://bm4x74g5yu4f7"]
+[gd_scene load_steps=3 format=3 uid="uid://dcptis54g1co7"]
 
-[node name="StartRamp" type="Node3D"]
+[ext_resource type="Script" path="res://Areas/Terrain.gd" id="1_cfqbf"]
 
-[node name="StaticBody3D" type="StaticBody3D" parent="."]
-transform = Transform3D(16.9708, 0, 0, 0, 16.9708, 0, 0, 0, 16.9708, 0, 0, 0)
+[sub_resource type="Curve3D" id="Curve3D_xg1po"]
+bake_interval = 5.0
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0.243061, -5.16699, 0, -4.1, 0.4, 0, 4.1, -0.4, 0, 12.9919, -5.30408, 0, -2, 1, 0, 2, -1, 0, 20.7, -7.6, 0, -1, 5, 0, 1, -5, 0, 26.8375, -19.5609, 0, 0, 0, 0, 0, 0, 0, 30.6917, -38.4223, 0, 0, 0, 0, 0, 0, 0, 35.393, -53.5983, 0, 0, 0, 0, 0, 0, 0, 39.6751, -71.2907, 0, -5.7, 9, 0, 5.7, -9, 0, 45.8843, -88.3859, 0, 0, 0, 0, 0, 0, 0, 62.5683, -99.4335, 0, -8.8, 0.6, 0, 8.8, -0.6, 0, 78.9862, -101.656, 0, -7.8, -3, 0, 7.8, 3, 0, 101.194, -99.7207, 0, -10.1, -5.4, 0, 10.1, 5.4, 0, 124.91, -86.7136, 0, -4.5, 0.5, 0, 4.5, -0.5, 0, 136.699, -82.0527, 0, 0, 0, 0, 0, 0, 0, 144.239, -100.559, 0, 0, 0, 0, 0, 0, 0, 143.827, -117.969, 0, 0, 0, 0, 0, 0, 0, -0.225716, -116.324, 0, 0, 0, 0, 0, 0, 0, 0.243061, -5.16699, 0),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+}
+point_count = 17
 
-[node name="CollisionPolygon3D" type="CollisionPolygon3D" parent="StaticBody3D"]
+[node name="StartRamp" type="StaticBody3D"]
+script = ExtResource("1_cfqbf")
+
+[node name="CollisionPolygon3D" type="CollisionPolygon3D" parent="."]
 depth = 3.0
-polygon = PackedVector2Array(1.21719, -0.161666, 1, 0, 0, 0, 0.00336188, -0.992475, 0, -3, 0, -5, 5.01672, -4.92566, 4.98002, -3.18858, 4.40508, -3.55557, 3.95246, -3.72683, 3.34081, -3.7513, 2.68023, -3.43324, 2.19091, -2.57693, 1.73097, -1.58069, 1.48631, -0.79778, 1.41291, -0.455257)
+polygon = PackedVector2Array(0, 0, 0, 0)
+
+[node name="Path3D" type="Path3D" parent="."]
+curve = SubResource("Curve3D_xg1po")

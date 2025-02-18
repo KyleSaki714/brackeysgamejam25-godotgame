@@ -20,11 +20,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.711944, 0)
 axis_lock_linear_z = true
 axis_lock_angular_x = true
 axis_lock_angular_y = true
-mass = 20.0
+mass = 15.0
 physics_material_override = SubResource("PhysicsMaterial_q1e04")
 center_of_mass_mode = 1
 center_of_mass = Vector3(-0.94, 0, 0)
 script = ExtResource("1_i3ogk")
+ENGINE_POWER = 250
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.950065, 0)

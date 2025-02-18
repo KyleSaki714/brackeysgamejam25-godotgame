@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://ch2cc4yln0dyh"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_jh2cc"]
+radius = 1.0
+
+[sub_resource type="SphereMesh" id="SphereMesh_gon61"]
+radius = 1.0
+height = 2.0
+
+[node name="spherebump" type="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 14.2646, -3.13788, 0.51568)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_jh2cc")
+disabled = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("SphereMesh_gon61")
