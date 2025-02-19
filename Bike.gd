@@ -1,5 +1,7 @@
 extends VehicleBody3D
 
+@onready var _graphics = $Graphics
+
 @export var MAX_STEER = 0.9
 @export var ENGINE_POWER = 125 # max horsepower
 const ENGINE_ACCEL = 25
@@ -27,6 +29,7 @@ func _physics_process(delta: float):
 	
 	# - GAS -
 	var cycling = Input.get_axis("backward", "forward")
+	checkCycleAnim(cycling)
 	if cycling:
 		engine_force += cycling * ENGINE_ACCEL
 		engine_force = clampf(engine_force, ENGINE_POWER * -1, ENGINE_POWER)
@@ -38,6 +41,7 @@ func _physics_process(delta: float):
 	# - TILT -
 	# apply torque
 	var tiltAxis = Input.get_axis("tilt left", "tilt right")
+	checkTiltAnim(tiltAxis)
 	if (tiltAxis != 0):
 		var torqueConstant = tiltAxis * _torquePower * -1
 		#print(PhysicsServer3D.body_get_direct_state(get_rid()).inverse_inertia)
@@ -61,6 +65,25 @@ func _physics_process(delta: float):
 	if (jumpBtn):
 		apply_impulse(transform.basis.z * JUMPFORCE)
 	
-	
-	
-	
+
+func checkCycleAnim(axisValue):
+	if (axisValue > 0):
+		$Graphics/Legs.play("Pedaling")
+	elif (axisValue < 0):
+		$Graphics/Legs.play_backwards("Pedaling")
+	else:
+		$Graphics/Legs.stop()
+
+func checkTiltAnim(axisValue):
+	if (axisValue > 0):
+		$Graphics/Coast.hide()
+		$Graphics/LeanBack.hide()
+		$Graphics/LeanForward.show()
+	elif (axisValue < 0):
+		$Graphics/Coast.hide()
+		$Graphics/LeanBack.show()
+		$Graphics/LeanForward.hide()
+	else:
+		$Graphics/Coast.show()
+		$Graphics/LeanBack.hide()
+		$Graphics/LeanForward.hide()

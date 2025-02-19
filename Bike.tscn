@@ -1,10 +1,44 @@
-[gd_scene load_steps=9 format=3 uid="uid://dg6p1qquywry7"]
+[gd_scene load_steps=16 format=3 uid="uid://dg6p1qquywry7"]
 
 [ext_resource type="Script" path="res://Bike.gd" id="1_i3ogk"]
-[ext_resource type="Texture2D" uid="uid://du8r73utf7khp" path="res://icon.svg" id="2_3cfmc"]
+[ext_resource type="Texture2D" uid="uid://sj54l6gl60lt" path="res://assets/Objects/Biker_CycleAnim_Frame1_20250218_232909.png" id="2_s5war"]
+[ext_resource type="Texture2D" uid="uid://cfiivpjjp7tkj" path="res://assets/Objects/Biker_CycleAnim_Frame2_20250218_232959.png" id="3_8yxxv"]
+[ext_resource type="Texture2D" uid="uid://bdughnonkvpbe" path="res://assets/Objects/Biker_CycleAnim_Frame3_20250218_233058.png" id="4_cohsy"]
+[ext_resource type="Texture2D" uid="uid://br65crwsrg0hr" path="res://assets/Objects/Biker_CycleAnim_Frame4_20250218_233146.png" id="5_ract6"]
+[ext_resource type="Texture2D" uid="uid://dmn12nam75oqe" path="res://assets/Objects/Biker_Torso_Coast_20250218_232538.png" id="6_3ntpk"]
+[ext_resource type="Texture2D" uid="uid://btdv77d1qxvwy" path="res://assets/Objects/Biker_Torso_LeanBack_20250218_232730.png" id="7_dfooq"]
+[ext_resource type="Texture2D" uid="uid://cm7bs8hwd47k" path="res://assets/Objects/Biker_Torso_LeanForward20250218_232342.png" id="8_u8fq8"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_q1e04"]
 friction = 0.3
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_eedai"]
+animations = [{
+"frames": [{
+"duration": 0.7,
+"texture": ExtResource("2_s5war")
+}, {
+"duration": 0.7,
+"texture": ExtResource("3_8yxxv")
+}, {
+"duration": 0.7,
+"texture": ExtResource("4_cohsy")
+}, {
+"duration": 0.7,
+"texture": ExtResource("5_ract6")
+}],
+"loop": true,
+"name": &"Pedaling",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 0.7,
+"texture": ExtResource("4_cohsy")
+}],
+"loop": true,
+"name": &"Stopped",
+"speed": 5.0
+}]
 
 [sub_resource type="BoxMesh" id="BoxMesh_b8d4s"]
 size = Vector3(2, 1, 0.5)
@@ -31,8 +65,31 @@ mass = 15.0
 physics_material_override = SubResource("PhysicsMaterial_q1e04")
 script = ExtResource("1_i3ogk")
 
+[node name="Graphics" type="Node3D" parent="."]
+
+[node name="Legs" type="AnimatedSprite3D" parent="Graphics"]
+transform = Transform3D(0.851177, 0, 0, 0, 0.851177, 0, 0, 0, 0.851177, 0, 1.02949, 0)
+sprite_frames = SubResource("SpriteFrames_eedai")
+animation = &"Stopped"
+autoplay = "Stopped"
+
+[node name="Coast" type="Sprite3D" parent="Graphics"]
+transform = Transform3D(0.735977, 0, 0, 0, 0.735977, 0, 0, 0, 0.735977, -0.409635, 4.14454, 0.0954285)
+texture = ExtResource("6_3ntpk")
+
+[node name="LeanBack" type="Sprite3D" parent="Graphics"]
+transform = Transform3D(0.73291, 0, 0, 0, 0.73291, 0, 0, 0, 0.73291, -0.927179, 4.23701, 0.0954285)
+visible = false
+texture = ExtResource("7_dfooq")
+
+[node name="LeanForward" type="Sprite3D" parent="Graphics"]
+transform = Transform3D(0.792414, 0, 0, 0, 0.792414, 0, 0, 0, 0.792414, -0.132004, 3.77918, 0.0954285)
+visible = false
+texture = ExtResource("8_u8fq8")
+
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.950065, 0)
+visible = false
 mesh = SubResource("BoxMesh_b8d4s")
 
 [node name="VehicleWheel3D" type="VehicleWheel3D" parent="."]
@@ -42,6 +99,7 @@ wheel_radius = 0.6
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="VehicleWheel3D"]
 transform = Transform3D(-5.32736e-08, -0.127698, -5.32736e-08, 1.21876, -5.58184e-09, 5.32736e-08, -5.32736e-08, -5.58184e-09, 1.21876, 0, 0, 0)
+visible = false
 mesh = SubResource("CylinderMesh_ybs2l")
 
 [node name="VehicleWheel3D2" type="VehicleWheel3D" parent="."]
@@ -51,6 +109,7 @@ wheel_radius = 0.6
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="VehicleWheel3D2"]
 transform = Transform3D(-5.32736e-08, -0.127698, -5.32736e-08, 1.21876, -5.58184e-09, 5.32736e-08, -5.32736e-08, -5.58184e-09, 1.21876, 0, 0, 0)
+visible = false
 mesh = SubResource("CylinderMesh_ybs2l")
 
 [node name="CamFollowTarget" type="Node3D" parent="."]
@@ -60,10 +119,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.26414, 4.57778, 45.572)
 
 [node name="test" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.936092, 0, 0)
-
-[node name="Icon" type="Sprite2D" parent="."]
-position = Vector2(65, -66)
-texture = ExtResource("2_3cfmc")
 
 [node name="WheelF" type="CollisionShape3D" parent="."]
 transform = Transform3D(-4.37114e-08, 1, -4.37114e-08, 0, -4.37114e-08, -1, -1, -4.37114e-08, 1.91069e-15, 2.30222, -0.00495374, 0)
