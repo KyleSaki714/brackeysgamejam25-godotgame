@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://du8r73utf7khp" path="res://icon.svg" id="2_3cfmc"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_q1e04"]
-friction = 0.4
+friction = 0.3
 
 [sub_resource type="BoxMesh" id="BoxMesh_b8d4s"]
 size = Vector3(2, 1, 0.5)
@@ -16,7 +16,7 @@ albedo_color = Color(0.277528, 0.277528, 0.277528, 1)
 material = SubResource("StandardMaterial3D_3qqb4")
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_rvmvi"]
-radius = 0.75
+radius = 0.264963
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ai0vr"]
 radius = 0.75
@@ -30,8 +30,6 @@ axis_lock_angular_y = true
 mass = 15.0
 physics_material_override = SubResource("PhysicsMaterial_q1e04")
 script = ExtResource("1_i3ogk")
-ENGINE_POWER = 200
-_torquePower = 200
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.950065, 0)
@@ -68,11 +66,11 @@ position = Vector2(65, -66)
 texture = ExtResource("2_3cfmc")
 
 [node name="WheelF" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 2.30222, 0.542108, 0)
+transform = Transform3D(-4.37114e-08, 1, -4.37114e-08, 0, -4.37114e-08, -1, -1, -4.37114e-08, 1.91069e-15, 2.30222, -0.00495374, 0)
 shape = SubResource("CapsuleShape3D_rvmvi")
 
 [node name="WheelB" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -2.302, 0.542375, 0)
+transform = Transform3D(-4.37114e-08, 1, -4.37114e-08, 0, -4.37114e-08, -1, -1, -4.37114e-08, 1.91069e-15, -2.302, -0.00468671, 0)
 shape = SubResource("CapsuleShape3D_rvmvi")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]

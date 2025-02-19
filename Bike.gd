@@ -1,9 +1,9 @@
 extends VehicleBody3D
 
 @export var MAX_STEER = 0.9
-@export var ENGINE_POWER = 150 # max horsepower
+@export var ENGINE_POWER = 125 # max horsepower
 const ENGINE_ACCEL = 25
-@export var _torquePower = 150 # "tilt" power
+@export var _torquePower = 175 # "tilt" power
 @export var COMSHIFT = 1 # how far from the center the center of mass shifts while tilting
 @export var COMSHIFTACCEL = 0.1 # how fast the center of mass shifts when tilting
 @export var JUMPFORCE = 300
