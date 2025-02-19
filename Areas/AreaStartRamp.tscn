@@ -25,12 +25,12 @@ point_count = 14
 albedo_color = Color(0.47788, 0.47788, 0.47788, 1)
 albedo_texture = ExtResource("4_2p4i4")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_blj7p"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3tm20"]
 albedo_texture = ExtResource("5_iib16")
 uv2_scale = Vector3(5, 5, 5)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_xo7ou"]
-material = SubResource("StandardMaterial3D_blj7p")
+material = SubResource("StandardMaterial3D_3tm20")
 size = Vector2(60, 77.647)
 orientation = 2
 
@@ -69,20 +69,26 @@ path_u_distance = 1.0
 path_joined = false
 material = SubResource("StandardMaterial3D_55xqf")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+[node name="Background" type="Node3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Background"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 58.2083, -36.0188, -2)
 mesh = SubResource("PlaneMesh_xo7ou")
+skeleton = NodePath("../..")
 
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Background"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 96.0579, -79.8578, -2)
 mesh = SubResource("PlaneMesh_xo7ou")
+skeleton = NodePath("../..")
 
-[node name="MeshInstance3D3" type="MeshInstance3D" parent="."]
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="Background"]
 transform = Transform3D(0.709005, 0.705204, 0, -0.705204, 0.709005, 0, 0, 0, 1, 142.592, -100.456, -2)
 mesh = SubResource("PlaneMesh_xo7ou")
+skeleton = NodePath("../..")
 
-[node name="MeshInstance3D4" type="MeshInstance3D" parent="."]
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="Background"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 201.394, -93.7924, -2)
 mesh = SubResource("PlaneMesh_xo7ou")
+skeleton = NodePath("../..")
 
 [editable path="PlatformRectangle"]

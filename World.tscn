@@ -1,15 +1,24 @@
-[gd_scene load_steps=7 format=3 uid="uid://cde7rcehautca"]
+[gd_scene load_steps=10 format=3 uid="uid://cde7rcehautca"]
 
 [ext_resource type="PackedScene" uid="uid://dg6p1qquywry7" path="res://Bike.tscn" id="2_pbg5e"]
 [ext_resource type="PackedScene" uid="uid://bi7rb6kshvy0f" path="res://GameCamera.tscn" id="3_lk8vx"]
 [ext_resource type="Script" path="res://GameManager.gd" id="4_4my16"]
-[ext_resource type="PackedScene" uid="uid://dcptis54g1co7" path="res://Areas/StartRamp.tscn" id="5_2fkej"]
-[ext_resource type="PackedScene" uid="uid://f22myalbcc1g" path="res://Areas/Area1.tscn" id="5_icdp7"]
+[ext_resource type="PackedScene" uid="uid://dcptis54g1co7" path="res://Areas/AreaStartRamp.tscn" id="5_2fkej"]
+[ext_resource type="PackedScene" uid="uid://j3q4vlxlvote" path="res://Areas/AreaTutorial.tscn" id="5_uhlam"]
+[ext_resource type="Texture2D" uid="uid://bf0bumvh52ymn" path="res://assets/Textures/woodendesktexture.jpg" id="6_da5bw"]
 
 [sub_resource type="Environment" id="Environment_3mh0e"]
 ambient_light_source = 3
 ambient_light_color = Color(1, 1, 1, 1)
 ambient_light_sky_contribution = 0.34
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_60bht"]
+albedo_texture = ExtResource("6_da5bw")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_vef3c"]
+material = SubResource("StandardMaterial3D_60bht")
+size = Vector2(800, 400)
+orientation = 2
 
 [node name="World" type="Node3D"]
 
@@ -32,10 +41,16 @@ script = ExtResource("4_4my16")
 [node name="StartRamp" parent="AreasContainer" instance=ExtResource("5_2fkej")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -10, 0)
 
-[node name="Area1" parent="AreasContainer" instance=ExtResource("5_icdp7")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 293.187, -101.936, 0)
-
 [node name="FirstAreaPoint" type="Node3D" parent="AreasContainer"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 211.907, -69.9431, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 268.534, -97.4747, 0)
+
+[node name="Tutorial" parent="AreasContainer" instance=ExtResource("5_uhlam")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 267.679, -97.8634, 0)
+
+[node name="Background" type="Node3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Background"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 328.856, -120.945, -24.1049)
+mesh = SubResource("PlaneMesh_vef3c")
 
 [editable path="Bike"]

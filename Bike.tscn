@@ -113,7 +113,7 @@ visible = false
 mesh = SubResource("CylinderMesh_ybs2l")
 
 [node name="CamFollowTarget" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.26414, 4.57778, 45.572)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.39115, 4.57778, 45.572)
 
 [node name="CamLookTarget" type="Node3D" parent="."]
 

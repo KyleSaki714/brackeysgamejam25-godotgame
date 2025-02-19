@@ -1,0 +1,67 @@
+[gd_scene load_steps=11 format=3 uid="uid://f22myalbcc1g"]
+
+[ext_resource type="Script" path="res://Areas/Terrain.gd" id="1_ts5c4"]
+[ext_resource type="PackedScene" uid="uid://b2w80cyadsfv2" path="res://Areas/Platforms/PlatformRectangle.tscn" id="2_i0805"]
+[ext_resource type="Material" uid="uid://c1448lhcffexi" path="res://assets/Textures/Texture_LinedPaper.tres" id="3_7fucn"]
+[ext_resource type="PackedScene" uid="uid://cm2qqx4xalftm" path="res://Areas/Platforms/PlatformCustomCurves.tscn" id="4_w35xb"]
+[ext_resource type="Curve3D" uid="uid://bqya0687umq2p" path="res://Areas/Platforms/TutorialMountainsCurve.tres" id="5_lm68k"]
+[ext_resource type="Texture2D" uid="uid://vcw0w27hirda" path="res://assets/Textures/Write_Your_Story_Blank_Lined_Notebook_Paper_Creative_Commons_(4812267249).jpg" id="6_km7dm"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_qao47"]
+size = Vector3(190, 1, 3)
+
+[sub_resource type="BoxMesh" id="BoxMesh_dauvt"]
+material = ExtResource("3_7fucn")
+size = Vector3(190, 50, 3)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_f57my"]
+albedo_texture = ExtResource("6_km7dm")
+uv2_scale = Vector3(5, 5, 5)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_edsmi"]
+material = SubResource("StandardMaterial3D_f57my")
+size = Vector2(60, 77.647)
+orientation = 2
+
+[node name="Area1" type="Node3D"]
+script = ExtResource("1_ts5c4")
+
+[node name="PlatformRectangle" parent="." instance=ExtResource("2_i0805")]
+
+[node name="CollisionShape3D" parent="PlatformRectangle" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 95.02, -0.5, 0)
+shape = SubResource("BoxShape3D_qao47")
+
+[node name="MeshInstance3D3" parent="PlatformRectangle" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 95, -25, 0)
+mesh = SubResource("BoxMesh_dauvt")
+
+[node name="PlatformCustomCurves" parent="." instance=ExtResource("4_w35xb")]
+
+[node name="Path3D" parent="PlatformCustomCurves" index="1"]
+curve = ExtResource("5_lm68k")
+
+[node name="Background" type="Node3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Background"]
+transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 224.208, -10.0188, -2)
+mesh = SubResource("PlaneMesh_edsmi")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Background"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 96.0579, -79.8578, -2)
+mesh = SubResource("PlaneMesh_edsmi")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="Background"]
+transform = Transform3D(0.709005, 0.705204, 0, -0.705204, 0.709005, 0, 0, 0, 1, 142.592, -100.456, -2)
+mesh = SubResource("PlaneMesh_edsmi")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="Background"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 201.394, -93.7924, -2)
+mesh = SubResource("PlaneMesh_edsmi")
+skeleton = NodePath("../..")
+
+[editable path="PlatformRectangle"]
+[editable path="PlatformCustomCurves"]

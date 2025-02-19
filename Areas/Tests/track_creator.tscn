@@ -1,0 +1,37 @@
+[gd_scene load_steps=6 format=3 uid="uid://b0lstjsusw1dh"]
+
+[ext_resource type="PackedScene" uid="uid://dcptis54g1co7" path="res://Areas/AreaStartRamp.tscn" id="1_q5wfv"]
+[ext_resource type="PackedScene" uid="uid://dg6p1qquywry7" path="res://Bike.tscn" id="2_cyo2i"]
+[ext_resource type="PackedScene" uid="uid://bi7rb6kshvy0f" path="res://GameCamera.tscn" id="3_yj266"]
+[ext_resource type="PackedScene" uid="uid://j3q4vlxlvote" path="res://Areas/AreaTutorial.tscn" id="4_1hnca"]
+
+[sub_resource type="Environment" id="Environment_37bjj"]
+ambient_light_source = 3
+ambient_light_color = Color(1, 1, 1, 1)
+ambient_light_sky_contribution = 0.38
+
+[node name="TrackCreator" type="Node3D"]
+
+[node name="Terrain" parent="." instance=ExtResource("1_q5wfv")]
+
+[node name="Terrain3" parent="." instance=ExtResource("1_q5wfv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 120, -141, 0)
+
+[node name="Terrain2" parent="." instance=ExtResource("1_q5wfv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 195, -88, 0)
+
+[node name="Bike" parent="." instance=ExtResource("2_cyo2i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.33828, 0.711944, 0)
+mass = 40.0
+
+[node name="GameCamera" parent="." node_paths=PackedStringArray("_follow_target", "_look_target") instance=ExtResource("3_yj266")]
+_follow_target = NodePath("../Bike/CamFollowTarget")
+_look_target = NodePath("../Bike/CamLookTarget")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_37bjj")
+
+[node name="Tutorial" parent="." instance=ExtResource("4_1hnca")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.667786, 0, 0)
+
+[editable path="Bike"]
