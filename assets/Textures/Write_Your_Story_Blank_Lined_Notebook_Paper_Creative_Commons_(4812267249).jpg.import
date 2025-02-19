@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://djmjlvdol8i0x"
-path.s3tc="res://.godot/imported/graphitetexture.jpg-3edc70eed262dd5b300636cfe4766041.s3tc.ctex"
+uid="uid://vcw0w27hirda"
+path.s3tc="res://.godot/imported/Write_Your_Story_Blank_Lined_Notebook_Paper_Creative_Commons_(4812267249).jpg-48055bab803c2d63c75fe417aec988b6.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/graphitetexture.jpg"
-dest_files=["res://.godot/imported/graphitetexture.jpg-3edc70eed262dd5b300636cfe4766041.s3tc.ctex"]
+source_file="res://assets/Textures/Write_Your_Story_Blank_Lined_Notebook_Paper_Creative_Commons_(4812267249).jpg"
+dest_files=["res://.godot/imported/Write_Your_Story_Blank_Lined_Notebook_Paper_Creative_Commons_(4812267249).jpg-48055bab803c2d63c75fe417aec988b6.s3tc.ctex"]
 
 [params]
 

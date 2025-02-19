@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://cm2qqx4xalftm" path="res://Areas/PlatformCustomCurves.tscn" id="1_l6b4k"]
 [ext_resource type="PackedScene" uid="uid://b2w80cyadsfv2" path="res://Areas/Platforms/PlatformRectangle.tscn" id="3_pl3mn"]
-[ext_resource type="Material" uid="uid://c1448lhcffexi" path="res://assets/Texture_LinedPaper.tres" id="4_w278w"]
+[ext_resource type="Material" uid="uid://c1448lhcffexi" path="res://assets/Textures/Texture_LinedPaper.tres" id="4_w278w"]
 
 [sub_resource type="Curve3D" id="Curve3D_bfvo5"]
 bake_interval = 10.0

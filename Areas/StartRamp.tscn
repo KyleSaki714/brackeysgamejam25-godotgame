@@ -1,10 +1,10 @@
 [gd_scene load_steps=12 format=3 uid="uid://dcptis54g1co7"]
 
 [ext_resource type="Script" path="res://Areas/Terrain.gd" id="1_cfqbf"]
-[ext_resource type="Material" uid="uid://c1448lhcffexi" path="res://assets/Texture_LinedPaper.tres" id="2_fk887"]
+[ext_resource type="Material" uid="uid://c1448lhcffexi" path="res://assets/Textures/Texture_LinedPaper.tres" id="2_fk887"]
 [ext_resource type="PackedScene" uid="uid://b2w80cyadsfv2" path="res://Areas/Platforms/PlatformRectangle.tscn" id="2_kpjot"]
-[ext_resource type="Texture2D" uid="uid://djmjlvdol8i0x" path="res://assets/graphitetexture.jpg" id="4_2p4i4"]
-[ext_resource type="Texture2D" uid="uid://vcw0w27hirda" path="res://assets/Write_Your_Story_Blank_Lined_Notebook_Paper_Creative_Commons_(4812267249).jpg" id="5_iib16"]
+[ext_resource type="Texture2D" uid="uid://djmjlvdol8i0x" path="res://assets/Textures/graphitetexture.jpg" id="4_2p4i4"]
+[ext_resource type="Texture2D" uid="uid://vcw0w27hirda" path="res://assets/Textures/Write_Your_Story_Blank_Lined_Notebook_Paper_Creative_Commons_(4812267249).jpg" id="5_iib16"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_hqpto"]
 size = Vector3(41, 1, 3)

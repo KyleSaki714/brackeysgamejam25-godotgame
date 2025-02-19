@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://b2w80cyadsfv2"]
 
-[ext_resource type="Material" uid="uid://c1448lhcffexi" path="res://assets/Texture_LinedPaper.tres" id="1_denc6"]
+[ext_resource type="Material" uid="uid://c1448lhcffexi" path="res://assets/Textures/Texture_LinedPaper.tres" id="1_denc6"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_yg4x4"]
 size = Vector3(19.96, 1, 3)
