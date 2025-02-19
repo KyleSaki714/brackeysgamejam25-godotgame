@@ -24,7 +24,6 @@ orientation = 2
 
 [node name="Bike" parent="." instance=ExtResource("2_pbg5e")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.21796, -7.38564, 0)
-mass = 20.0
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_3mh0e")
@@ -38,14 +37,17 @@ script = ExtResource("4_4my16")
 
 [node name="AreasContainer" type="Node3D" parent="."]
 
-[node name="StartRamp" parent="AreasContainer" instance=ExtResource("5_2fkej")]
+[node name="AreaStartRamp" parent="AreasContainer" instance=ExtResource("5_2fkej")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -10, 0)
 
 [node name="FirstAreaPoint" type="Node3D" parent="AreasContainer"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 268.534, -97.4747, 0)
 
-[node name="Tutorial" parent="AreasContainer" instance=ExtResource("5_uhlam")]
+[node name="AreaTutorial" parent="AreasContainer" instance=ExtResource("5_uhlam")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 267.679, -97.8634, 0)
+
+[node name="Tutorial" parent="AreasContainer" instance=ExtResource("5_uhlam")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -10.6558, 0)
 
 [node name="Background" type="Node3D" parent="."]
 
