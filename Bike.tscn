@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://dg6p1qquywry7"]
+[gd_scene load_steps=9 format=3 uid="uid://dg6p1qquywry7"]
 
 [ext_resource type="Script" path="res://Bike.gd" id="1_i3ogk"]
 [ext_resource type="Texture2D" uid="uid://du8r73utf7khp" path="res://icon.svg" id="2_3cfmc"]
@@ -15,6 +15,13 @@ albedo_color = Color(0.277528, 0.277528, 0.277528, 1)
 [sub_resource type="CylinderMesh" id="CylinderMesh_ybs2l"]
 material = SubResource("StandardMaterial3D_3qqb4")
 
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_rvmvi"]
+radius = 0.75
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ai0vr"]
+radius = 0.75
+height = 2.77263
+
 [node name="Bike" type="VehicleBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.711944, 0)
 axis_lock_linear_z = true
@@ -22,18 +29,13 @@ axis_lock_angular_x = true
 axis_lock_angular_y = true
 mass = 15.0
 physics_material_override = SubResource("PhysicsMaterial_q1e04")
-center_of_mass_mode = 1
-center_of_mass = Vector3(-0.94, 0, 0)
 script = ExtResource("1_i3ogk")
-_torquePower = 100
+ENGINE_POWER = 200
+_torquePower = 200
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.950065, 0)
 mesh = SubResource("BoxMesh_b8d4s")
-
-[node name="CollisionPolygon3D" type="CollisionPolygon3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.520957, 0)
-polygon = PackedVector2Array(1.71806, -0.710442, 2.73276, -0.687381, 3.0904, -0.203935, 3.12177, 0.51768, 2.68253, 0.988299, 1.99229, 1.01967, 0.564742, 1.08242, 0.596777, 3.70772, -0.417918, 3.00436, -0.977333, 1.08468, -2.36878, 1.01967, -3.04333, 0.611804, -3.0904, -0.0313746, -2.72959, -0.596117, -2.02366, -0.611804, -0.957042, 0.327314, 0.749491, 0.327314)
 
 [node name="VehicleWheel3D" type="VehicleWheel3D" parent="."]
 transform = Transform3D(-6.60333e-08, 0, 1.51066, 0, 1.51066, 0, -1.51066, 0, -6.60333e-08, 2.29294, 0.167224, 0)
@@ -64,3 +66,15 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.936092, 0, 0)
 [node name="Icon" type="Sprite2D" parent="."]
 position = Vector2(65, -66)
 texture = ExtResource("2_3cfmc")
+
+[node name="WheelF" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 2.30222, 0.542108, 0)
+shape = SubResource("CapsuleShape3D_rvmvi")
+
+[node name="WheelB" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -2.302, 0.542375, 0)
+shape = SubResource("CapsuleShape3D_rvmvi")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.35772, 0)
+shape = SubResource("CapsuleShape3D_ai0vr")
