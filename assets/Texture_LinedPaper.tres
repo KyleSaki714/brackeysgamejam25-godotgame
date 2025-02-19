@@ -1,0 +1,8 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://c1448lhcffexi"]
+
+[ext_resource type="Texture2D" uid="uid://bg85vqa80mcmv" path="res://assets/notebookpapertexture.jpg" id="1_3vwmu"]
+
+[resource]
+albedo_texture = ExtResource("1_3vwmu")
+uv1_scale = Vector3(5, 5, 5)
+uv2_scale = Vector3(5, 5, 5)

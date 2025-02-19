@@ -30,7 +30,7 @@ script = ExtResource("4_4my16")
 [node name="AreasContainer" type="Node3D" parent="."]
 
 [node name="StartRamp" parent="AreasContainer" instance=ExtResource("5_2fkej")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 58.9711, -4.87364, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -10, 0)
 
 [node name="Area1" parent="AreasContainer" instance=ExtResource("5_icdp7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 293.187, -101.936, 0)

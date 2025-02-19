@@ -1,9 +1,14 @@
-[gd_scene load_steps=5 format=3 uid="uid://b0lstjsusw1dh"]
+[gd_scene load_steps=6 format=3 uid="uid://b0lstjsusw1dh"]
 
 [ext_resource type="PackedScene" uid="uid://dcptis54g1co7" path="res://Areas/StartRamp.tscn" id="1_pcrxf"]
 [ext_resource type="PackedScene" uid="uid://dg6p1qquywry7" path="res://Bike.tscn" id="1_vnrgh"]
 [ext_resource type="PackedScene" uid="uid://bi7rb6kshvy0f" path="res://GameCamera.tscn" id="3_b2pmn"]
-[ext_resource type="PackedScene" uid="uid://f22myalbcc1g" path="res://Areas/Area1.tscn" id="4_4c5t7"]
+[ext_resource type="PackedScene" uid="uid://j3q4vlxlvote" path="res://Areas/Tutorial.tscn" id="4_yxbgx"]
+
+[sub_resource type="Environment" id="Environment_37bjj"]
+ambient_light_source = 3
+ambient_light_color = Color(1, 1, 1, 1)
+ambient_light_sky_contribution = 0.38
 
 [node name="TrackCreator" type="Node3D"]
 
@@ -23,6 +28,10 @@ mass = 40.0
 _follow_target = NodePath("../Bike/CamFollowTarget")
 _look_target = NodePath("../Bike/CamLookTarget")
 
-[node name="Area1" parent="." instance=ExtResource("4_4c5t7")]
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_37bjj")
+
+[node name="Tutorial" parent="." instance=ExtResource("4_yxbgx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.667786, 0, 0)
 
 [editable path="Bike"]
