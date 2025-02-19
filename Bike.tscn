@@ -10,7 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://cm7bs8hwd47k" path="res://assets/Objects/Biker_Torso_LeanForward20250218_232342.png" id="8_u8fq8"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_q1e04"]
-friction = 0.05
+friction = 0.1
 bounce = 0.25
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_eedai"]
@@ -66,6 +66,10 @@ axis_lock_angular_y = true
 mass = 13.5
 physics_material_override = SubResource("PhysicsMaterial_q1e04")
 can_sleep = false
+linear_damp_mode = 1
+linear_damp = 0.075
+angular_damp_mode = 1
+angular_damp = 0.075
 script = ExtResource("1_i3ogk")
 
 [node name="Graphics" type="Node3D" parent="."]
@@ -103,6 +107,7 @@ wheel_radius = 0.6
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="VehicleWheel3D"]
 transform = Transform3D(-5.32736e-08, -0.127698, -5.32736e-08, 1.21876, -5.58184e-09, 5.32736e-08, -5.32736e-08, -5.58184e-09, 1.21876, 0, 0, 0)
+visible = false
 mesh = SubResource("CylinderMesh_ybs2l")
 
 [node name="VehicleWheel3D2" type="VehicleWheel3D" parent="."]
@@ -113,6 +118,7 @@ wheel_radius = 0.6
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="VehicleWheel3D2"]
 transform = Transform3D(-5.32736e-08, -0.127698, -5.32736e-08, 1.21876, -5.58184e-09, 5.32736e-08, -5.32736e-08, -5.58184e-09, 1.21876, 0, 0, 0)
+visible = false
 mesh = SubResource("CylinderMesh_ybs2l")
 
 [node name="CamFollowTarget" type="Node3D" parent="."]
