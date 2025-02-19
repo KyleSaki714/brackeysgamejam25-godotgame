@@ -47,7 +47,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 268.534, -97.4747, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 267.679, -97.8634, 0)
 
 [node name="Tutorial" parent="AreasContainer" instance=ExtResource("5_uhlam")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -10.6558, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -9.46128, 0)
 
 [node name="Background" type="Node3D" parent="."]
 

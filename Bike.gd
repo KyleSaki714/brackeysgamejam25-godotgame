@@ -1,6 +1,8 @@
 extends VehicleBody3D
 
 @onready var _graphics = $Graphics
+@onready var _wheel1 = $VehicleWheel3D
+@onready var _wheel2 = $VehicleWheel3D2
 
 @export var MAX_STEER = 0.9
 @export var ENGINE_POWER = 125 # max horsepower
@@ -9,10 +11,12 @@ const ENGINE_ACCEL = 40
 @export var _torquePower = 175 # "tilt" power
 @export var COMSHIFT = 1 # how far from the center the center of mass shifts while tilting
 @export var COMSHIFTACCEL = 0.1 # how fast the center of mass shifts when tilting
-@export var JUMPFORCE = 300
+@export var JUMPFORCE = 50
 
 
 var _currentCenterOfMassShift: float = 0
+var _speedVal = 0.0;
+var _isGrounded = false
 
 #enum {
 	#COASTING,
@@ -24,9 +28,24 @@ func _integrate_forces(state: PhysicsDirectBodyState3D) -> void:
 	#linear_velocity.clampf(0, 35.0)
 	#linear_velocity = linear_velocity.clampf(-30.0, 30.0)
 	state.set_linear_velocity(get_linear_velocity().clampf(-MAX_SPEED, MAX_SPEED))
-	print(get_linear_velocity().length())
+	#print(get_linear_velocity().length())
+	
+	# 
+	_speedVal = state.get_linear_velocity().length() / MAX_SPEED
+	#print(_speedVal)
+	
+	# - JUMP -
+	# it's a little hop to get over ~5m. 
+	var jumpBtn = Input.is_action_just_pressed("jump")
+	if (_isGrounded && jumpBtn):
+		var jumpVec = transform.basis.y * (JUMPFORCE * _speedVal)
+		state.apply_impulse(jumpVec)
+		print(jumpVec)
 
 func _physics_process(delta: float):
+	# - is Grounded -
+	_isGrounded = _wheel1.is_in_contact() || _wheel2.is_in_contact()
+	print(_isGrounded)
 	
 	# - GAS -
 	var cycling = Input.get_axis("backward", "forward")
@@ -60,11 +79,7 @@ func _physics_process(delta: float):
 		center_of_mass = Vector3.ZERO
 		_currentCenterOfMassShift = 0
 		center_of_mass_mode = CENTER_OF_MASS_MODE_AUTO
-	
-	# - JUMP -
-	var jumpBtn = Input.is_action_just_pressed("jump")
-	if (jumpBtn):
-		apply_impulse(transform.basis.z * JUMPFORCE)
+
 	
 
 func checkCycleAnim(axisValue):

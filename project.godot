@@ -67,6 +67,10 @@ DEBUG_cam_zoom_in={
 ]
 }
 
+[physics]
+
+3d/default_gravity=13.0
+
 [rendering]
 
 renderer/rendering_method="gl_compatibility"
