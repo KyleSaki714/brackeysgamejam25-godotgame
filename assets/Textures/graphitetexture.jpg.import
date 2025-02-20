@@ -3,16 +3,16 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://djmjlvdol8i0x"
-path.s3tc="res://.godot/imported/graphitetexture.jpg-efb7ad9154c20dfaf7804c61aae8024e.s3tc.ctex"
+path.etc2="res://.godot/imported/graphitetexture.jpg-efb7ad9154c20dfaf7804c61aae8024e.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/Textures/graphitetexture.jpg"
-dest_files=["res://.godot/imported/graphitetexture.jpg-efb7ad9154c20dfaf7804c61aae8024e.s3tc.ctex"]
+dest_files=["res://.godot/imported/graphitetexture.jpg-efb7ad9154c20dfaf7804c61aae8024e.etc2.ctex"]
 
 [params]
 

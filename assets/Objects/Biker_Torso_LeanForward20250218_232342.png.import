@@ -3,16 +3,16 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cm7bs8hwd47k"
-path.s3tc="res://.godot/imported/Biker_Torso_LeanForward20250218_232342.png-7c11cb8a8e9bcccb9e5917d864ebb4cb.s3tc.ctex"
+path.etc2="res://.godot/imported/Biker_Torso_LeanForward20250218_232342.png-7c11cb8a8e9bcccb9e5917d864ebb4cb.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/Objects/Biker_Torso_LeanForward20250218_232342.png"
-dest_files=["res://.godot/imported/Biker_Torso_LeanForward20250218_232342.png-7c11cb8a8e9bcccb9e5917d864ebb4cb.s3tc.ctex"]
+dest_files=["res://.godot/imported/Biker_Torso_LeanForward20250218_232342.png-7c11cb8a8e9bcccb9e5917d864ebb4cb.etc2.ctex"]
 
 [params]
 

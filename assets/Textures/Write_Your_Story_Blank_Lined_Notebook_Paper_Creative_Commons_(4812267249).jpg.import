@@ -3,16 +3,16 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://vcw0w27hirda"
-path.s3tc="res://.godot/imported/Write_Your_Story_Blank_Lined_Notebook_Paper_Creative_Commons_(4812267249).jpg-48055bab803c2d63c75fe417aec988b6.s3tc.ctex"
+path.etc2="res://.godot/imported/Write_Your_Story_Blank_Lined_Notebook_Paper_Creative_Commons_(4812267249).jpg-48055bab803c2d63c75fe417aec988b6.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/Textures/Write_Your_Story_Blank_Lined_Notebook_Paper_Creative_Commons_(4812267249).jpg"
-dest_files=["res://.godot/imported/Write_Your_Story_Blank_Lined_Notebook_Paper_Creative_Commons_(4812267249).jpg-48055bab803c2d63c75fe417aec988b6.s3tc.ctex"]
+dest_files=["res://.godot/imported/Write_Your_Story_Blank_Lined_Notebook_Paper_Creative_Commons_(4812267249).jpg-48055bab803c2d63c75fe417aec988b6.etc2.ctex"]
 
 [params]
 

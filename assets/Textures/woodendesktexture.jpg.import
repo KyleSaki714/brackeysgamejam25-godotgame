@@ -3,16 +3,16 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bf0bumvh52ymn"
-path.s3tc="res://.godot/imported/woodendesktexture.jpg-0b52dcd504d249c7b239df060ee7ef44.s3tc.ctex"
+path.etc2="res://.godot/imported/woodendesktexture.jpg-0b52dcd504d249c7b239df060ee7ef44.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/Textures/woodendesktexture.jpg"
-dest_files=["res://.godot/imported/woodendesktexture.jpg-0b52dcd504d249c7b239df060ee7ef44.s3tc.ctex"]
+dest_files=["res://.godot/imported/woodendesktexture.jpg-0b52dcd504d249c7b239df060ee7ef44.etc2.ctex"]
 
 [params]
 
