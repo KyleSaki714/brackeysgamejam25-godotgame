@@ -7,7 +7,7 @@ extends VehicleBody3D
 @export var MAX_STEER = 0.9
 @export var ENGINE_POWER = 125 # max horsepower
 const ENGINE_ACCEL = 40
-@export var MAX_SPEED = 32.0
+@export var MAX_SPEED = 34.0
 @export var _torquePower = 175 # "tilt" power
 @export var COMSHIFT = 1 # how far from the center the center of mass shifts while tilting
 @export var COMSHIFTACCEL = 0.1 # how fast the center of mass shifts when tilting
@@ -28,7 +28,7 @@ func _integrate_forces(state: PhysicsDirectBodyState3D) -> void:
 	#linear_velocity.clampf(0, 35.0)
 	#linear_velocity = linear_velocity.clampf(-30.0, 30.0)
 	state.set_linear_velocity(get_linear_velocity().clampf(-MAX_SPEED, MAX_SPEED))
-	#print(get_linear_velocity().length())
+	print(get_linear_velocity().length())
 	
 	# 
 	_speedVal = state.get_linear_velocity().length() / MAX_SPEED
@@ -45,7 +45,7 @@ func _integrate_forces(state: PhysicsDirectBodyState3D) -> void:
 func _physics_process(delta: float):
 	# - is Grounded -
 	_isGrounded = _wheel1.is_in_contact() || _wheel2.is_in_contact()
-	print(_isGrounded)
+	#print(_isGrounded)
 	
 	# - GAS -
 	var cycling = Input.get_axis("backward", "forward")

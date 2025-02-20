@@ -1,11 +1,13 @@
-[gd_scene load_steps=10 format=3 uid="uid://cde7rcehautca"]
+[gd_scene load_steps=12 format=3 uid="uid://cde7rcehautca"]
 
 [ext_resource type="PackedScene" uid="uid://dg6p1qquywry7" path="res://Bike.tscn" id="2_pbg5e"]
 [ext_resource type="PackedScene" uid="uid://bi7rb6kshvy0f" path="res://GameCamera.tscn" id="3_lk8vx"]
 [ext_resource type="Script" path="res://GameManager.gd" id="4_4my16"]
 [ext_resource type="PackedScene" uid="uid://dcptis54g1co7" path="res://Areas/AreaStartRamp.tscn" id="5_2fkej"]
+[ext_resource type="PackedScene" uid="uid://x0lk7ecnuro2" path="res://Areas/Area1.tscn" id="5_icdp7"]
 [ext_resource type="PackedScene" uid="uid://j3q4vlxlvote" path="res://Areas/AreaTutorial.tscn" id="5_uhlam"]
 [ext_resource type="Texture2D" uid="uid://bf0bumvh52ymn" path="res://assets/Textures/woodendesktexture.jpg" id="6_da5bw"]
+[ext_resource type="PackedScene" uid="uid://dagye6svxj4ln" path="res://Areas/Area2.tscn" id="7_nnjgp"]
 
 [sub_resource type="Environment" id="Environment_3mh0e"]
 ambient_light_source = 3
@@ -23,12 +25,13 @@ orientation = 2
 [node name="World" type="Node3D"]
 
 [node name="Bike" parent="." instance=ExtResource("2_pbg5e")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.21796, -7.38564, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 615.578, 233.458, 0)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_3mh0e")
 
 [node name="GameCamera" parent="." node_paths=PackedStringArray("_follow_target", "_look_target") instance=ExtResource("3_lk8vx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 623.927, 232.427, 49.7549)
 _follow_target = NodePath("../Bike/CamFollowTarget")
 _look_target = NodePath("../Bike/CamLookTarget")
 
@@ -38,21 +41,27 @@ script = ExtResource("4_4my16")
 [node name="AreasContainer" type="Node3D" parent="."]
 
 [node name="AreaStartRamp" parent="AreasContainer" instance=ExtResource("5_2fkej")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -10, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 328.069, 0)
 
 [node name="FirstAreaPoint" type="Node3D" parent="AreasContainer"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 268.534, -97.4747, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 268.534, 240.594, 0)
 
 [node name="AreaTutorial" parent="AreasContainer" instance=ExtResource("5_uhlam")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 267.679, -97.8634, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 267.679, 240.205, 0)
 
-[node name="Tutorial" parent="AreasContainer" instance=ExtResource("5_uhlam")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -9.46128, 0)
+[node name="Area1" parent="AreasContainer" instance=ExtResource("5_icdp7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 749.372, 220.918, 0)
+
+[node name="Area2" parent="AreasContainer" instance=ExtResource("7_nnjgp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1062.47, 213.758, 0)
 
 [node name="Background" type="Node3D" parent="."]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Background"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 328.856, -120.945, -24.1049)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 328.856, 217.124, -24.1049)
 mesh = SubResource("PlaneMesh_vef3c")
+
+[node name="StartPoint" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.21796, 330.683, 0)
 
 [editable path="Bike"]

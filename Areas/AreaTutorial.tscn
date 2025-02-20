@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://b2w80cyadsfv2" path="res://Areas/Platforms/PlatformRectangle.tscn" id="3_pl3mn"]
 [ext_resource type="Texture2D" uid="uid://vcw0w27hirda" path="res://assets/Textures/Write_Your_Story_Blank_Lined_Notebook_Paper_Creative_Commons_(4812267249).jpg" id="4_8w2hx"]
 [ext_resource type="Material" uid="uid://c1448lhcffexi" path="res://assets/Textures/Texture_LinedPaper.tres" id="4_w278w"]
-[ext_resource type="PackedScene" uid="uid://cfmhymliio378" path="res://Areas/Tests/test_ramp1.tscn" id="5_yrh4r"]
+[ext_resource type="PackedScene" uid="uid://cfmhymliio378" path="res://Areas/Platforms/PlatformRamp.tscn" id="5_1fqky"]
 
 [sub_resource type="Curve3D" id="Curve3D_bfvo5"]
 bake_interval = 10.0
@@ -152,8 +152,8 @@ visible = false
 mesh = SubResource("PlaneMesh_0d0m5")
 skeleton = NodePath("../../PlatformRectangle5")
 
-[node name="ramp" parent="." instance=ExtResource("5_yrh4r")]
-transform = Transform3D(0.866026, -0.5, 0, 0.5, 0.866026, 0, 0, 0, 1, 100.374, 1.8413, 0)
+[node name="PlatformRamp" parent="." instance=ExtResource("5_1fqky")]
+transform = Transform3D(0.965926, -0.258819, 0, 0.258819, 0.965926, 0, 0, 0, 1, 420.826, -6.78755, 0)
 
 [editable path="PlatformCustomCurves"]
 [editable path="PlatformRectangle"]
