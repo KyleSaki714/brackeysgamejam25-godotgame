@@ -40,7 +40,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25, -25, 0)
 mesh = SubResource("BoxMesh_g8g7f")
 
 [node name="PlatformRectangle2" parent="." instance=ExtResource("2_ekagv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 64.977, -7.97591, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 70.977, -7.97591, 0)
 
 [node name="CollisionShape3D" parent="PlatformRectangle2" index="0"]
 shape = SubResource("BoxShape3D_tjqc0")
@@ -50,7 +50,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, -25, 0)
 mesh = SubResource("BoxMesh_ihk6m")
 
 [node name="PlatformRectangle3" parent="." instance=ExtResource("2_ekagv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.977, -14.9759, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 112.977, -16.9759, 0)
 
 [node name="CollisionShape3D" parent="PlatformRectangle3" index="0"]
 shape = SubResource("BoxShape3D_tjqc0")
@@ -60,7 +60,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, -25, 0)
 mesh = SubResource("BoxMesh_ihk6m")
 
 [node name="PlatformRectangle4" parent="." instance=ExtResource("2_ekagv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 138.977, -21.9759, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 156.977, -25.9759, 0)
 
 [node name="CollisionShape3D" parent="PlatformRectangle4" index="0"]
 shape = SubResource("BoxShape3D_tjqc0")

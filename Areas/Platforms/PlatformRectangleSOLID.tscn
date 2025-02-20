@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://cvh17gjsidfw1"]
+
+[ext_resource type="Material" uid="uid://c1448lhcffexi" path="res://assets/Textures/Texture_LinedPaper.tres" id="1_x6hxi"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_78kba"]
+size = Vector3(19.96, 50, 3)
+
+[sub_resource type="BoxMesh" id="BoxMesh_7yd0v"]
+material = ExtResource("1_x6hxi")
+size = Vector3(20, 50, 3)
+
+[node name="PlatformRectangle" type="StaticBody3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, -25, 0)
+shape = SubResource("BoxShape3D_78kba")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, -25, 0)
+mesh = SubResource("BoxMesh_7yd0v")

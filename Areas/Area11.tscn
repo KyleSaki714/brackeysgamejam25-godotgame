@@ -1,0 +1,45 @@
+[gd_scene load_steps=7 format=3 uid="uid://cm4gs6h6pqab2"]
+
+[ext_resource type="PackedScene" uid="uid://b2w80cyadsfv2" path="res://Areas/Platforms/PlatformRectangle.tscn" id="1_fyxot"]
+[ext_resource type="PackedScene" uid="uid://cvh17gjsidfw1" path="res://Areas/Platforms/PlatformRectangleSOLID.tscn" id="1_ldycs"]
+[ext_resource type="Material" uid="uid://c1448lhcffexi" path="res://assets/Textures/Texture_LinedPaper.tres" id="2_4unao"]
+[ext_resource type="PackedScene" uid="uid://cjhm7hgh0xom7" path="res://Areas/Obstacles/BumpCylinder.tscn" id="4_0xuld"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_yeeh6"]
+size = Vector3(132, 1, 3)
+
+[sub_resource type="BoxMesh" id="BoxMesh_d102t"]
+material = ExtResource("2_4unao")
+size = Vector3(132, 50, 3)
+
+[node name="Area11" type="Node3D"]
+
+[node name="PlatformRectangle" parent="." instance=ExtResource("1_ldycs")]
+
+[node name="PlatformRectangle2" parent="." instance=ExtResource("1_ldycs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 37, 19, 0)
+
+[node name="PlatformRectangle3" parent="." instance=ExtResource("1_fyxot")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, -46, 0)
+
+[node name="CollisionShape3D" parent="PlatformRectangle3" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 66.02, -0.5, 0)
+shape = SubResource("BoxShape3D_yeeh6")
+
+[node name="MeshInstance3D3" parent="PlatformRectangle3" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 65.9, -25, 0)
+mesh = SubResource("BoxMesh_d102t")
+
+[node name="BumpCylinder" parent="." instance=ExtResource("4_0xuld")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 80, -47, 0)
+
+[node name="BumpCylinder2" parent="." instance=ExtResource("4_0xuld")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 90, -47, 0)
+
+[node name="BumpCylinder3" parent="." instance=ExtResource("4_0xuld")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 111, -47, 0)
+
+[node name="BumpCylinder4" parent="." instance=ExtResource("4_0xuld")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 121, -47, 0)
+
+[editable path="PlatformRectangle3"]

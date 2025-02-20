@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://cde7rcehautca"]
+[gd_scene load_steps=13 format=3 uid="uid://cde7rcehautca"]
 
 [ext_resource type="PackedScene" uid="uid://dg6p1qquywry7" path="res://Bike.tscn" id="2_pbg5e"]
 [ext_resource type="PackedScene" uid="uid://bi7rb6kshvy0f" path="res://GameCamera.tscn" id="3_lk8vx"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://j3q4vlxlvote" path="res://Areas/AreaTutorial.tscn" id="5_uhlam"]
 [ext_resource type="Texture2D" uid="uid://bf0bumvh52ymn" path="res://assets/Textures/woodendesktexture.jpg" id="6_da5bw"]
 [ext_resource type="PackedScene" uid="uid://dagye6svxj4ln" path="res://Areas/Area2.tscn" id="7_nnjgp"]
+[ext_resource type="PackedScene" uid="uid://cm4gs6h6pqab2" path="res://Areas/Area11.tscn" id="8_osrxt"]
 
 [sub_resource type="Environment" id="Environment_3mh0e"]
 ambient_light_source = 3
@@ -24,14 +25,14 @@ orientation = 2
 
 [node name="World" type="Node3D"]
 
-[node name="Bike" parent="." instance=ExtResource("2_pbg5e")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 615.578, 233.458, 0)
-
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_3mh0e")
 
+[node name="Bike" parent="." instance=ExtResource("2_pbg5e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1224.71, 189.065, 0)
+
 [node name="GameCamera" parent="." node_paths=PackedStringArray("_follow_target", "_look_target") instance=ExtResource("3_lk8vx")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 623.927, 232.427, 49.7549)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1233.06, 188.035, 49.7549)
 _follow_target = NodePath("../Bike/CamFollowTarget")
 _look_target = NodePath("../Bike/CamLookTarget")
 
@@ -54,6 +55,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 749.372, 220.918, 0)
 
 [node name="Area2" parent="AreasContainer" instance=ExtResource("7_nnjgp")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1062.47, 213.758, 0)
+
+[node name="Area11" parent="AreasContainer" instance=ExtResource("8_osrxt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1238.83, 187.762, 0)
 
 [node name="Background" type="Node3D" parent="."]
 

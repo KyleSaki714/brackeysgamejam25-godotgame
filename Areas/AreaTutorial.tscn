@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://j3q4vlxlvote"]
+[gd_scene load_steps=15 format=3 uid="uid://j3q4vlxlvote"]
 
 [ext_resource type="PackedScene" uid="uid://cm2qqx4xalftm" path="res://Areas/Platforms/PlatformCustomCurves.tscn" id="1_l6b4k"]
 [ext_resource type="PackedScene" uid="uid://b2w80cyadsfv2" path="res://Areas/Platforms/PlatformRectangle.tscn" id="3_pl3mn"]
@@ -43,12 +43,6 @@ size = Vector3(19.96, 2.5, 3)
 [sub_resource type="BoxMesh" id="BoxMesh_1wmex"]
 material = ExtResource("4_w278w")
 size = Vector3(20, 2.5, 3)
-
-[sub_resource type="PlaneMesh" id="PlaneMesh_0d0m5"]
-lightmap_size_hint = Vector2i(102, 17)
-material = ExtResource("4_w278w")
-size = Vector2(10, 2.5)
-orientation = 2
 
 [node name="Tutorial" type="Node3D"]
 
@@ -145,11 +139,6 @@ shape = SubResource("BoxShape3D_cgwi4")
 [node name="MeshInstance3D3" parent="PlatformRectangle5" index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, -13.7166, 0)
 mesh = SubResource("BoxMesh_1wmex")
-skeleton = NodePath("../../PlatformRectangle5")
-
-[node name="MeshInstance3D" parent="PlatformRectangle5" index="2"]
-visible = false
-mesh = SubResource("PlaneMesh_0d0m5")
 skeleton = NodePath("../../PlatformRectangle5")
 
 [node name="PlatformRamp" parent="." instance=ExtResource("5_1fqky")]
