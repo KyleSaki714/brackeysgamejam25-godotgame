@@ -11,6 +11,7 @@ material = ExtResource("1_b0qnt")
 orientation = 2
 
 [node name="DeathBody" type="RigidBody3D"]
+collision_layer = 4
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_01e2n")

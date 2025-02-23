@@ -37,16 +37,17 @@ orientation = 2
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_3mh0e")
 
-[node name="Bike" parent="." instance=ExtResource("2_pbg5e")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2773.75, -210.806, 0)
+[node name="Bike" parent="." node_paths=PackedStringArray("_spawnpoints") instance=ExtResource("2_pbg5e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1605.96, 127.906, 0)
+_spawnpoints = NodePath("../SpawnPoints")
 
 [node name="GameCamera" parent="." node_paths=PackedStringArray("_follow_target", "_look_target") instance=ExtResource("3_lk8vx")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2782.1, -228.961, 49.7549)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1614.31, 109.751, 49.7549)
 _follow_target = NodePath("../Bike/CamFollowTarget")
 _look_target = NodePath("../Bike/CamLookTarget")
 
 [node name="DeathTrigger" parent="." instance=ExtResource("3_kvqua")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2798.25, -220.38, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1688.93, 128.78, 0)
 
 [node name="GameManager" type="Node3D" parent="."]
 script = ExtResource("4_4my16")
@@ -102,5 +103,34 @@ mesh = SubResource("PlaneMesh_vef3c")
 
 [node name="StartPoint" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.21796, 330.683, 0)
+
+[node name="SpawnPoints" type="Node3D" parent="."]
+
+[node name="spawnpoint1" type="Node3D" parent="SpawnPoints"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.21914, 329.196, 0)
+
+[node name="spawnpoint2" type="Node3D" parent="SpawnPoints"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 420.676, 241.599, 0)
+
+[node name="spawnpoint3" type="Node3D" parent="SpawnPoints"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 598.658, 232.335, 0)
+
+[node name="spawnpoint4" type="Node3D" parent="SpawnPoints"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1029.73, 223.311, 0)
+
+[node name="spawnpoint5" type="Node3D" parent="SpawnPoints"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1246.52, 188.638, 0)
+
+[node name="spawnpoint6" type="Node3D" parent="SpawnPoints"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1596.65, 127.326, 0)
+
+[node name="spawnpoint7" type="Node3D" parent="SpawnPoints"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1777.84, 16.7418, 0)
+
+[node name="spawnpoint8" type="Node3D" parent="SpawnPoints"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1993.07, -20.7374, 0)
+
+[node name="spawnpoint9" type="Node3D" parent="SpawnPoints"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2554.32, -137.108, 0)
 
 [editable path="Bike"]

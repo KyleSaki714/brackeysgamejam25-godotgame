@@ -9,10 +9,12 @@ material = ExtResource("1_smbhk")
 orientation = 2
 
 [node name="DeathBackpack" type="RigidBody3D"]
+collision_layer = 4
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("BoxShape3D_anxhq")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.516504, 0, 0, 0, 0.516504, 0, 0, 0, 0.516504, 0, 0, 0)
+layers = 4
 mesh = SubResource("PlaneMesh_34pi7")

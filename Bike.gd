@@ -7,6 +7,7 @@ var death_backpack = preload("res://death_backpack.tscn")
 @onready var _wheel1 = $VehicleWheel3D
 @onready var _wheel2 = $VehicleWheel3D2
 
+@export var _spawnpoints: Node3D
 @export var MAX_STEER = 0.9
 @export var ENGINE_POWER = 125 # max horsepower
 const ENGINE_ACCEL = 40
@@ -25,6 +26,8 @@ var _isGrounded = false
 # POWERUPS
 var _unlockedSpeed = false
 
+
+var _lastDeathPos: Vector3 
 var _lockBike = false
 
 #enum {
@@ -95,7 +98,23 @@ func _physics_process(delta: float):
 		_currentCenterOfMassShift = 0
 		center_of_mass_mode = CENTER_OF_MASS_MODE_AUTO
 
+func determineRespawnPoint(deathPos: Vector3):
+
+	var spawn
+	var sps = _spawnpoints.get_children()
+	spawn = sps[0]
+	for sp in sps:
+		#print("deathpos: ",deathPos.x)
+		#print("curr sp: ",sp.get_global_position().x)
+		if (deathPos.x > sp.get_global_position().x):
+			spawn = sp.get_global_position()
+	
+	print(spawn)
+	set_global_position(spawn)
+	
+
 func death():
+	_lockBike = true
 	$Graphics.hide()
 	
 	var dbinstance = death_body.instantiate()
@@ -105,6 +124,9 @@ func death():
 	var dbinstance2 = death_backpack.instantiate()
 	get_tree().root.add_child(dbinstance2)
 	dbinstance2.global_position = global_position
+	
+	_lastDeathPos = get_global_position()
+	determineRespawnPoint(_lastDeathPos)
 	
 
 func checkCycleAnim(axisValue):
@@ -152,7 +174,6 @@ func _on_area_manager_area_exited(area: Powerup) -> void:
 func _on_area_manager_area_entered_trigger(area: Trigger) -> void:
 	print("phart")
 	if area.trigger_type == Trigger.TRIGGER_TYPES.DEEATH:
-		_lockBike = true
 		death()
 		
 	elif area.trigger_type == Trigger.TRIGGER_TYPES.ENDGAME:
