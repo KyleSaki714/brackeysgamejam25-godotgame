@@ -41,8 +41,9 @@ environment = SubResource("Environment_3mh0e")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 270.474, 242.899, 0)
 _spawnpoints = NodePath("../SpawnPoints")
 
-[node name="GameCamera" parent="." node_paths=PackedStringArray("_follow_target", "_look_target") instance=ExtResource("3_lk8vx")]
+[node name="GameCamera" parent="." node_paths=PackedStringArray("_bike", "_follow_target", "_look_target") instance=ExtResource("3_lk8vx")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 278.823, 236.924, 49.7549)
+_bike = NodePath("../Bike")
 _follow_target = NodePath("../Bike/CamFollowTarget")
 _look_target = NodePath("../Bike/CamLookTarget")
 

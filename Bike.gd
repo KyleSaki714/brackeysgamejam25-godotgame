@@ -1,5 +1,7 @@
 extends VehicleBody3D
 
+signal onDeath
+
 var death_body = preload("res://death_body.tscn")
 var death_backpack = preload("res://death_backpack.tscn")
 
@@ -18,6 +20,7 @@ const SPEEDUNLOCKBONUS = 20.0
 @export var COMSHIFTACCEL = 0.1 # how fast the center of mass shifts when tilting
 @export var JUMPFORCE = 50
 
+const DEATHTIMER = 2.5
 
 var _currentCenterOfMassShift: float = 0
 var _speedVal = 0.0;
@@ -128,7 +131,7 @@ func death():
 	_lastDeathPos = get_global_position()
 	var respawnPoint = determineRespawnPoint(_lastDeathPos)
 
-	await get_tree().create_timer(4.0).timeout
+	await get_tree().create_timer(DEATHTIMER).timeout
 	
 	_lockBike = false
 	$Graphics.show()
