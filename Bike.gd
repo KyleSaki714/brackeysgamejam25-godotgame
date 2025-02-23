@@ -109,14 +109,9 @@ func determineRespawnPoint(deathPos: Vector3):
 		if (deathPos.x > sp.get_global_position().x):
 			spawn = sp.get_global_position()
 	
-	print(spawn)
-	set_global_position(spawn)
-	
+	return spawn
 
 func death():
-	_lockBike = true
-	$Graphics.hide()
-	
 	var dbinstance = death_body.instantiate()
 	get_tree().root.add_child(dbinstance)
 	dbinstance.global_position = global_position
@@ -125,9 +120,20 @@ func death():
 	get_tree().root.add_child(dbinstance2)
 	dbinstance2.global_position = global_position
 	
-	_lastDeathPos = get_global_position()
-	determineRespawnPoint(_lastDeathPos)
+	_lockBike = true
+	$Graphics.hide()
+	linear_velocity = Vector3.ZERO
+	angular_velocity = Vector3.ZERO
 	
+	_lastDeathPos = get_global_position()
+	var respawnPoint = determineRespawnPoint(_lastDeathPos)
+
+	await get_tree().create_timer(4.0).timeout
+	
+	_lockBike = false
+	$Graphics.show()
+	set_global_position(respawnPoint)
+	rotation = Vector3.ZERO
 
 func checkCycleAnim(axisValue):
 	if _lockBike:

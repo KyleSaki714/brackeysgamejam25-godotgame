@@ -38,16 +38,13 @@ orientation = 2
 environment = SubResource("Environment_3mh0e")
 
 [node name="Bike" parent="." node_paths=PackedStringArray("_spawnpoints") instance=ExtResource("2_pbg5e")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1605.96, 127.906, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 270.474, 242.899, 0)
 _spawnpoints = NodePath("../SpawnPoints")
 
 [node name="GameCamera" parent="." node_paths=PackedStringArray("_follow_target", "_look_target") instance=ExtResource("3_lk8vx")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1614.31, 109.751, 49.7549)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 278.823, 236.924, 49.7549)
 _follow_target = NodePath("../Bike/CamFollowTarget")
 _look_target = NodePath("../Bike/CamLookTarget")
-
-[node name="DeathTrigger" parent="." instance=ExtResource("3_kvqua")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1688.93, 128.78, 0)
 
 [node name="GameManager" type="Node3D" parent="."]
 script = ExtResource("4_4my16")
@@ -107,7 +104,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.21796, 330.683, 0)
 [node name="SpawnPoints" type="Node3D" parent="."]
 
 [node name="spawnpoint1" type="Node3D" parent="SpawnPoints"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.21914, 329.196, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.21914, 330.362, 0)
 
 [node name="spawnpoint2" type="Node3D" parent="SpawnPoints"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 420.676, 241.599, 0)
@@ -132,5 +129,28 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1993.07, -20.7374, 0)
 
 [node name="spawnpoint9" type="Node3D" parent="SpawnPoints"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2554.32, -137.108, 0)
+
+[node name="DeathTriggers" type="Node3D" parent="."]
+
+[node name="DeathTrigger" parent="DeathTriggers" instance=ExtResource("3_kvqua")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -116.21, 188.176, 0)
+
+[node name="DeathTrigger2" parent="DeathTriggers" instance=ExtResource("3_kvqua")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 249.312, 202.302, 0)
+
+[node name="DeathTrigger3" parent="DeathTriggers" instance=ExtResource("3_kvqua")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 733.361, 195.069, 0)
+
+[node name="DeathTrigger4" parent="DeathTriggers" instance=ExtResource("3_kvqua")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1113.67, 170.333, 0)
+
+[node name="DeathTrigger5" parent="DeathTriggers" instance=ExtResource("3_kvqua")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1632.64, -10.8341, 0)
+
+[node name="DeathTrigger6" parent="DeathTriggers" instance=ExtResource("3_kvqua")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1828.53, -76.2669, 0)
+
+[node name="DeathTrigger7" parent="DeathTriggers" instance=ExtResource("3_kvqua")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2631.76, -260.159, 0)
 
 [editable path="Bike"]

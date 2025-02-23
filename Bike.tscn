@@ -156,6 +156,9 @@ collision_mask = 2
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0827637, 2.69061, 0)
 shape = SubResource("BoxShape3D_6jn7f")
 
+[node name="Timer" type="Timer" parent="."]
+wait_time = 4.0
+
 [connection signal="area_entered" from="AreaManager" to="." method="_on_area_manager_area_entered_trigger"]
 [connection signal="area_entered" from="AreaManager" to="." method="_on_area_manager_area_entered"]
 [connection signal="area_exited" from="AreaManager" to="." method="_on_area_manager_area_exited_trigger"]
