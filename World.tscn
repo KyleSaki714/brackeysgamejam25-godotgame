@@ -136,6 +136,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2554.32, -137.108, 0)
 [node name="DeathTrigger" parent="DeathTriggers" instance=ExtResource("3_kvqua")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -116.21, 188.176, 0)
 
+[node name="DeathTriggertest" parent="DeathTriggers" instance=ExtResource("3_kvqua")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 349.242, 246.436, 0)
+
 [node name="DeathTrigger2" parent="DeathTriggers" instance=ExtResource("3_kvqua")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 249.312, 202.302, 0)
 

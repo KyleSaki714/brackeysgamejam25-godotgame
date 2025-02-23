@@ -118,6 +118,7 @@ func death():
 	var dbinstance = death_body.instantiate()
 	get_tree().root.add_child(dbinstance)
 	dbinstance.global_position = global_position
+	dbinstance.linear_velocity = linear_velocity
 	
 	var dbinstance2 = death_backpack.instantiate()
 	get_tree().root.add_child(dbinstance2)
