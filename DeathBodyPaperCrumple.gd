@@ -16,3 +16,12 @@ func _ready() -> void:
 			$MeshInstance3D.set_surface_override_material(0, papercrumple2)
 		3:
 			$MeshInstance3D.set_surface_override_material(0, papercrumple3)
+	
+	randint = rand.randi_range(1, 3)
+	match randint:
+		1:
+			$AudioStreamPlayer3D.play()
+		2:
+			$AudioStreamPlayer3D2.play()
+		3:
+			$AudioStreamPlayer3D3.play()

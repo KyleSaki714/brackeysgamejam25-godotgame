@@ -1,7 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://cx3vap1bfkav2"]
+[gd_scene load_steps=8 format=3 uid="uid://cx3vap1bfkav2"]
 
 [ext_resource type="Script" path="res://DeathBodyPaperCrumple.gd" id="1_qnspi"]
 [ext_resource type="Material" uid="uid://cvy6hg8rjjvqn" path="res://assets/Textures/PaperCrumple1.tres" id="2_567gp"]
+[ext_resource type="AudioStream" uid="uid://blgbvwbux1f1d" path="res://Audio/sfx_papercrumple_1.wav" id="3_fm4gh"]
+[ext_resource type="AudioStream" uid="uid://ciup5g8d0sskv" path="res://Audio/sfx_papercrumple_2.wav" id="4_304x0"]
+[ext_resource type="AudioStream" uid="uid://dub8ddgwwri2e" path="res://Audio/sfx_papercrumple_3.wav" id="5_uv7i6"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_01e2n"]
 radius = 1.46456
@@ -28,5 +31,14 @@ mesh = SubResource("PlaneMesh_34pi7")
 wait_time = 10.0
 one_shot = true
 autostart = true
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("3_fm4gh")
+
+[node name="AudioStreamPlayer3D2" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("4_304x0")
+
+[node name="AudioStreamPlayer3D3" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("5_uv7i6")
 
 [connection signal="timeout" from="Timer" to="." method="queue_free"]
