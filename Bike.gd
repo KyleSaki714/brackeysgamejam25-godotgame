@@ -8,6 +8,7 @@ var death_backpack = preload("res://death_backpack.tscn")
 @onready var _graphics = $Graphics
 @onready var _wheel1 = $VehicleWheel3D
 @onready var _wheel2 = $VehicleWheel3D2
+@export var _sunset: Node3D
 
 @export var _spawnpoints: Node3D
 @export var MAX_STEER = 0.9
@@ -226,6 +227,10 @@ func _on_area_manager_area_entered_trigger(area: Trigger) -> void:
 		_lockBike = true
 		await get_tree().create_timer(5.0).timeout
 		get_tree().change_scene_to_file("res://Screens/EndScreen.tscn")
+	
+	elif area.trigger_type == Trigger.TRIGGER_TYPES.SUNSET:
+		pass
+		
 
 func _on_area_manager_area_exited_trigger(area: Trigger) -> void:
 	print("phartedd")

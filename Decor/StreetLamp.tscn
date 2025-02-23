@@ -14,3 +14,9 @@ orientation = 2
 [node name="StreetLamp" type="MeshInstance3D"]
 transform = Transform3D(4.26169, 0, 0, 0, 4.26169, 0, 0, 0, 4.26169, 0, 0, 0)
 mesh = SubResource("PlaneMesh_cdjv2")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(0.234649, 0, 0, 0, 0.234649, 0, 0, 0, 0.234649, 0, 0.416978, 0)
+light_color = Color(1, 1, 0.109804, 1)
+light_energy = 3.586
+omni_range = 18.905

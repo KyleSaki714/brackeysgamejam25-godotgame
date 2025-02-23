@@ -1,4 +1,4 @@
-[gd_scene load_steps=66 format=3 uid="uid://cde7rcehautca"]
+[gd_scene load_steps=70 format=3 uid="uid://cde7rcehautca"]
 
 [ext_resource type="PackedScene" uid="uid://dg6p1qquywry7" path="res://Bike.tscn" id="2_pbg5e"]
 [ext_resource type="PackedScene" uid="uid://b7vwnfo1c06rm" path="res://Areas/Triggers/DeathTrigger.tscn" id="3_kvqua"]
@@ -33,11 +33,21 @@
 [ext_resource type="Texture2D" uid="uid://dwwa3c7fayhhj" path="res://assets/ComicPanels/20250222_231924.png" id="29_1u008"]
 [ext_resource type="Texture2D" uid="uid://ckx1mfwojc6q2" path="res://assets/ComicPanels/20250222_232126.png" id="30_5qogm"]
 [ext_resource type="Texture2D" uid="uid://cremfl05rj2yq" path="res://assets/ComicPanels/20250222_232159.png" id="31_b41kx"]
+[ext_resource type="PackedScene" uid="uid://gcfwrx8h17a0" path="res://Areas/Triggers/SunTrigger.tscn" id="34_bhgg8"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_0gjgk"]
+panorama = ExtResource("6_da5bw")
+
+[sub_resource type="Sky" id="Sky_3frs0"]
+sky_material = SubResource("PanoramaSkyMaterial_0gjgk")
 
 [sub_resource type="Environment" id="Environment_3mh0e"]
+background_mode = 1
+background_color = Color(0.0196078, 0.054902, 0.223529, 1)
+sky = SubResource("Sky_3frs0")
 ambient_light_source = 3
 ambient_light_color = Color(1, 1, 1, 1)
-ambient_light_sky_contribution = 0.34
+ambient_light_sky_contribution = 0.66
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_60bht"]
 albedo_texture = ExtResource("6_da5bw")
@@ -174,6 +184,9 @@ material = SubResource("StandardMaterial3D_assqi")
 size = Vector2(30, 30)
 orientation = 2
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_qyijv"]
+size = Vector3(104.516, 124.078, 5)
+
 [node name="World" type="Node3D"]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
@@ -182,6 +195,12 @@ environment = SubResource("Environment_3mh0e")
 [node name="Bike" parent="." node_paths=PackedStringArray("_spawnpoints") instance=ExtResource("2_pbg5e")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.20943, 329.22, 0)
 _spawnpoints = NodePath("../SpawnPoints")
+MAX_STEER = 0.9
+ENGINE_POWER = 125
+MAX_SPEED = 34.0
+_torquePower = 175
+COMSHIFT = 1
+COMSHIFTACCEL = 0.1
 
 [node name="GameCamera" parent="." node_paths=PackedStringArray("_bike", "_follow_target", "_look_target") instance=ExtResource("3_lk8vx")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.5593, 323.245, 49.7549)
@@ -242,22 +261,22 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 328.856, 217.124, -24.1049)
 mesh = SubResource("PlaneMesh_vef3c")
 
 [node name="StreetLamp" parent="Background" instance=ExtResource("18_w74th")]
-transform = Transform3D(4.26169, 0, 0, 0, 4.26169, 0, 0, 0, 4.26169, 37.4249, 336.484, -1.87327)
+transform = Transform3D(4.26169, 0, 0, 0, 4.26169, 0, 0, 0, 4.26169, 37.4249, 336.484, -1.61445)
 
 [node name="StreetLamp2" parent="Background" instance=ExtResource("18_w74th")]
-transform = Transform3D(4.26169, 0, 0, 0, 4.26169, 0, 0, 0, 4.26169, 72.7259, 323.86, -1.87327)
+transform = Transform3D(4.26169, 0, 0, 0, 4.26169, 0, 0, 0, 4.26169, 72.7259, 323.86, -1.61445)
 
 [node name="StreetLamp3" parent="Background" instance=ExtResource("18_w74th")]
-transform = Transform3D(4.26169, 0, 0, 0, 4.26169, 0, 0, 0, 4.26169, 99.6078, 245.944, -1.87327)
+transform = Transform3D(4.26169, 0, 0, 0, 4.26169, 0, 0, 0, 4.26169, 99.6078, 245.944, -1.61445)
 
 [node name="StreetLamp4" parent="Background" instance=ExtResource("18_w74th")]
-transform = Transform3D(4.26169, 0, 0, 0, 4.26169, 0, 0, 0, 4.26169, 135.343, 237.116, -1.87327)
+transform = Transform3D(4.26169, 0, 0, 0, 4.26169, 0, 0, 0, 4.26169, 135.343, 237.116, -1.61445)
 
 [node name="StreetLamp5" parent="Background" instance=ExtResource("18_w74th")]
-transform = Transform3D(4.26169, 0, 0, 0, 4.26169, 0, 0, 0, 4.26169, 171.149, 238.129, -1.87327)
+transform = Transform3D(4.26169, 0, 0, 0, 4.26169, 0, 0, 0, 4.26169, 171.149, 238.129, -1.61446)
 
 [node name="StreetLamp6" parent="Background" instance=ExtResource("18_w74th")]
-transform = Transform3D(4.26169, 0, 0, 0, 4.26169, 0, 0, 0, 4.26169, 206.37, 252.851, -1.87327)
+transform = Transform3D(4.26169, 0, 0, 0, 4.26169, 0, 0, 0, 4.26169, 206.37, 252.851, -1.61446)
 
 [node name="MeshInstance3D2" parent="Background" instance=ExtResource("19_lbew1")]
 transform = Transform3D(10.1222, 0, 0, 0, 10.1222, 0, 0, 0, 10.1222, 783.976, 230.812, -1.41496)
@@ -338,9 +357,13 @@ mesh = SubResource("PlaneMesh_3t715")
 transform = Transform3D(4.88207, 0, 0, 0, 5.94211, 0, 0, 0, 4.88207, 2768.65, -220.968, 1.69532)
 mesh = SubResource("PlaneMesh_3t715")
 
-[node name="MeshInstance3D10" type="MeshInstance3D" parent="Background"]
+[node name="sun" type="MeshInstance3D" parent="Background"]
 transform = Transform3D(5.64769, 0, 0, 0, 5.64769, 0, 0, 0, 5.64769, 2246.82, -64.1736, -496.066)
 mesh = SubResource("PlaneMesh_jxhcx")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Background/sun"]
+light_color = Color(0.984314, 0.564706, 0.384314, 1)
+sky_mode = 1
 
 [node name="StartPoint" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.21796, 330.683, 0)
@@ -397,6 +420,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1828.53, -76.2669, 0)
 [node name="DeathTrigger7" parent="DeathTriggers" instance=ExtResource("3_kvqua")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2631.76, -260.159, 0)
 
+[node name="SunTrigger" parent="." instance=ExtResource("34_bhgg8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1848.79, 3.47628, 6.10352e-05)
+
+[node name="CollisionShape3D" parent="SunTrigger" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 121.167, 24.5502, 0)
+shape = SubResource("BoxShape3D_qyijv")
+
 [editable path="Bike"]
 [editable path="Background/MeshInstance3D3"]
 [editable path="Background/MeshInstance3D4"]
@@ -417,3 +447,4 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2631.76, -260.159, 0)
 [editable path="Background/MeshInstance3D17"]
 [editable path="Background/MeshInstance3D18"]
 [editable path="Background/MeshInstance3D19"]
+[editable path="SunTrigger"]

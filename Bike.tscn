@@ -89,6 +89,12 @@ linear_damp = 0.075
 angular_damp_mode = 1
 angular_damp = 0.075
 script = ExtResource("1_i3ogk")
+MAX_STEER = null
+ENGINE_POWER = null
+MAX_SPEED = null
+_torquePower = null
+COMSHIFT = null
+COMSHIFTACCEL = null
 JUMPFORCE = 150
 
 [node name="Graphics" type="Node3D" parent="."]

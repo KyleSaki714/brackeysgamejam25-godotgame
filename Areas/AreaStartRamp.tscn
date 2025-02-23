@@ -72,22 +72,22 @@ material = SubResource("StandardMaterial3D_55xqf")
 [node name="Background" type="Node3D" parent="."]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Background"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 58.2083, -36.0188, -2)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 58.2083, -36.0188, -5.71717)
 mesh = SubResource("PlaneMesh_xo7ou")
 skeleton = NodePath("../..")
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="Background"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 96.0579, -79.8578, -2)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 96.0579, -79.8578, -5.71717)
 mesh = SubResource("PlaneMesh_xo7ou")
 skeleton = NodePath("../..")
 
 [node name="MeshInstance3D3" type="MeshInstance3D" parent="Background"]
-transform = Transform3D(0.709005, 0.705204, 0, -0.705204, 0.709005, 0, 0, 0, 1, 142.592, -100.456, -2)
+transform = Transform3D(0.709005, 0.705204, 0, -0.705204, 0.709005, 0, 0, 0, 1, 142.592, -100.456, -5.71717)
 mesh = SubResource("PlaneMesh_xo7ou")
 skeleton = NodePath("../..")
 
 [node name="MeshInstance3D4" type="MeshInstance3D" parent="Background"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 201.394, -93.7924, -2)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 201.394, -93.7924, -5.71717)
 mesh = SubResource("PlaneMesh_xo7ou")
 skeleton = NodePath("../..")
 
