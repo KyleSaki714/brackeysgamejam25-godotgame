@@ -1,23 +1,25 @@
-[gd_scene load_steps=4 format=3 uid="uid://cx3vap1bfkav2"]
+[gd_scene load_steps=5 format=3 uid="uid://cx3vap1bfkav2"]
 
-[ext_resource type="Material" uid="uid://6bihttqockcd" path="res://assets/Textures/texture_woodenruler.tres" id="1_b0qnt"]
+[ext_resource type="Script" path="res://DeathBodyPaperCrumple.gd" id="1_qnspi"]
+[ext_resource type="Material" uid="uid://cvy6hg8rjjvqn" path="res://assets/Textures/PaperCrumple1.tres" id="2_567gp"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_01e2n"]
 radius = 1.46456
 height = 3.2731
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_34pi7"]
-material = ExtResource("1_b0qnt")
+material = ExtResource("2_567gp")
 orientation = 2
 
 [node name="DeathBody" type="RigidBody3D"]
 collision_layer = 4
+script = ExtResource("1_qnspi")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_01e2n")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(1.72168, 0, 0, 0, 1.72168, 0, 0, 0, 1.72168, 0, 0, 0)
+transform = Transform3D(2.07973, 0, 0, 0, 2.07973, 0, 0, 0, 2.07973, 0, 0, 0)
 mesh = SubResource("PlaneMesh_34pi7")
 
 [node name="Timer" type="Timer" parent="."]
