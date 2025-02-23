@@ -1,0 +1,47 @@
+[gd_scene load_steps=8 format=3 uid="uid://bnnvx6j4q1n0g"]
+
+[ext_resource type="PackedScene" uid="uid://b2w80cyadsfv2" path="res://Areas/Platforms/PlatformRectangle.tscn" id="1_gg45u"]
+[ext_resource type="PackedScene" uid="uid://cvh17gjsidfw1" path="res://Areas/Platforms/PlatformRectangleSOLID.tscn" id="1_w8bjp"]
+[ext_resource type="Material" uid="uid://c1448lhcffexi" path="res://assets/Textures/Texture_LinedPaper.tres" id="2_v7hxn"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_3jtqt"]
+size = Vector3(50, 50, 3)
+
+[sub_resource type="BoxMesh" id="BoxMesh_meic0"]
+material = ExtResource("2_v7hxn")
+size = Vector3(50, 50, 3)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_raapt"]
+size = Vector3(50, 1, 3)
+
+[sub_resource type="BoxMesh" id="BoxMesh_1mh6m"]
+material = ExtResource("2_v7hxn")
+size = Vector3(50, 50, 3)
+
+[node name="Area3" type="Node3D"]
+
+[node name="Background" type="Node3D" parent="."]
+
+[node name="PlatformRectangle" parent="." instance=ExtResource("1_w8bjp")]
+
+[node name="CollisionShape3D" parent="PlatformRectangle" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25, -25, 0)
+shape = SubResource("BoxShape3D_3jtqt")
+
+[node name="MeshInstance3D3" parent="PlatformRectangle" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25, -25, 0)
+mesh = SubResource("BoxMesh_meic0")
+
+[node name="PlatformRectangle2" parent="." instance=ExtResource("1_gg45u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 50, -50, 0)
+
+[node name="CollisionShape3D" parent="PlatformRectangle2" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25, -0.5, 0)
+shape = SubResource("BoxShape3D_raapt")
+
+[node name="MeshInstance3D3" parent="PlatformRectangle2" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25, -25, 0)
+mesh = SubResource("BoxMesh_1mh6m")
+
+[editable path="PlatformRectangle"]
+[editable path="PlatformRectangle2"]

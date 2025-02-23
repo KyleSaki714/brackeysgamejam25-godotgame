@@ -38,7 +38,7 @@ func _integrate_forces(state: PhysicsDirectBodyState3D) -> void:
 		setVel = get_linear_velocity().clampf(-MAX_SPEED, MAX_SPEED)
 	
 	state.set_linear_velocity(setVel)
-	print(get_linear_velocity().length())
+	#print(get_linear_velocity().length())
 	
 	# 
 	_speedVal = state.get_linear_velocity().length() / MAX_SPEED
@@ -114,14 +114,19 @@ func checkTiltAnim(axisValue):
 		$Graphics/LeanBack.hide()
 		$Graphics/LeanForward.hide()
 
-func _on_powerup_manager_area_entered(area: Powerup) -> void:
-	print("area entered")
+func _on_area_manager_area_entered(area: Powerup) -> void:
 	if area.power_type == Powerup.POWER_TYPES.UNLOCKSPEED:
 		_unlockedSpeed = true
 		print("UNLOCK SPEED!!!")
-		
-func _on_powerup_manager_area_exited(area: Powerup) -> void:
-	print("area exited")
+
+func _on_area_manager_area_exited(area: Powerup) -> void:
 	if area.power_type == Powerup.POWER_TYPES.UNLOCKSPEED:
 		_unlockedSpeed = false
 		print("LOCK SPEED!!! SLOWW!!")
+
+func _on_area_manager_area_entered_trigger(area: Trigger) -> void:
+	print("phart")
+
+func _on_area_manager_area_exited_trigger(area: Trigger) -> void:
+	print("phartedd")
+	

@@ -148,13 +148,15 @@ shape = SubResource("CapsuleShape3D_rvmvi")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.35772, 0)
 shape = SubResource("CapsuleShape3D_ai0vr")
 
-[node name="PowerupManager" type="Area3D" parent="."]
+[node name="AreaManager" type="Area3D" parent="."]
 collision_layer = 0
 collision_mask = 2
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="PowerupManager"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="AreaManager"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0827637, 2.69061, 0)
 shape = SubResource("BoxShape3D_6jn7f")
 
-[connection signal="area_entered" from="PowerupManager" to="." method="_on_powerup_manager_area_entered"]
-[connection signal="area_exited" from="PowerupManager" to="." method="_on_powerup_manager_area_exited"]
+[connection signal="area_entered" from="AreaManager" to="." method="_on_area_manager_area_entered_trigger"]
+[connection signal="area_entered" from="AreaManager" to="." method="_on_area_manager_area_entered"]
+[connection signal="area_exited" from="AreaManager" to="." method="_on_area_manager_area_exited_trigger"]
+[connection signal="area_exited" from="AreaManager" to="." method="_on_area_manager_area_exited"]

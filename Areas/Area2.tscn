@@ -46,7 +46,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 70.977, -7.97591, 0)
 shape = SubResource("BoxShape3D_tjqc0")
 
 [node name="MeshInstance3D3" parent="PlatformRectangle2" index="1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, -25, 0)
 mesh = SubResource("BoxMesh_ihk6m")
 
 [node name="PlatformRectangle3" parent="." instance=ExtResource("2_ekagv")]
@@ -56,7 +55,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 112.977, -16.9759, 0)
 shape = SubResource("BoxShape3D_tjqc0")
 
 [node name="MeshInstance3D3" parent="PlatformRectangle3" index="1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, -25, 0)
 mesh = SubResource("BoxMesh_ihk6m")
 
 [node name="PlatformRectangle4" parent="." instance=ExtResource("2_ekagv")]
@@ -66,7 +64,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 156.977, -25.9759, 0)
 shape = SubResource("BoxShape3D_tjqc0")
 
 [node name="MeshInstance3D3" parent="PlatformRectangle4" index="1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, -25, 0)
 mesh = SubResource("BoxMesh_ihk6m")
 
 [node name="Background" type="Node3D" parent="."]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://cde7rcehautca"]
+[gd_scene load_steps=21 format=3 uid="uid://cde7rcehautca"]
 
 [ext_resource type="PackedScene" uid="uid://dg6p1qquywry7" path="res://Bike.tscn" id="2_pbg5e"]
 [ext_resource type="PackedScene" uid="uid://bi7rb6kshvy0f" path="res://GameCamera.tscn" id="3_lk8vx"]
@@ -15,6 +15,8 @@
 [ext_resource type="PackedScene" uid="uid://dkjl8vs3kdk2g" path="res://Areas/Area6.tscn" id="12_ly46q"]
 [ext_resource type="PackedScene" uid="uid://fyhl8yvereyb" path="res://Areas/Powerups/ZoneUnlockedSpeed.tscn" id="13_ee1p7"]
 [ext_resource type="PackedScene" uid="uid://ubmespmj3gkq" path="res://Areas/Area12.tscn" id="13_lxweo"]
+[ext_resource type="PackedScene" uid="uid://bnnvx6j4q1n0g" path="res://Areas/Area3.tscn" id="15_wr2re"]
+[ext_resource type="PackedScene" uid="uid://ca3ocln6jjyi6" path="res://Areas/AreaHome.tscn" id="16_eff37"]
 
 [sub_resource type="Environment" id="Environment_3mh0e"]
 ambient_light_source = 3
@@ -35,10 +37,10 @@ orientation = 2
 environment = SubResource("Environment_3mh0e")
 
 [node name="Bike" parent="." instance=ExtResource("2_pbg5e")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2036.02, -22.3297, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2963.33, -228.039, 0)
 
 [node name="GameCamera" parent="." node_paths=PackedStringArray("_follow_target", "_look_target") instance=ExtResource("3_lk8vx")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2044.37, -23.3596, 49.7549)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2971.68, -229.069, 49.7549)
 _follow_target = NodePath("../Bike/CamFollowTarget")
 _look_target = NodePath("../Bike/CamLookTarget")
 
@@ -81,6 +83,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1956.27, -23.9404, 0)
 
 [node name="Area12" parent="AreasContainer" instance=ExtResource("13_lxweo")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2457.64, -137.766, 0)
+
+[node name="Area3" parent="AreasContainer" instance=ExtResource("15_wr2re")]
+transform = Transform3D(0.965926, -0.258819, 0, 0.258819, 0.965926, 0, 0, 0, 1, 2594.91, -163.528, 0)
+
+[node name="AreaHome" parent="AreasContainer" instance=ExtResource("16_eff37")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2746.83, -229.246, 0)
 
 [node name="Background" type="Node3D" parent="."]
 

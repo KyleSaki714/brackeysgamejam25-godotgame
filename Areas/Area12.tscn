@@ -42,10 +42,21 @@ shape = SubResource("BoxShape3D_wsbhf")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.0218, -25, 0)
 mesh = SubResource("BoxMesh_ge588")
 
+[node name="PlatformRectangle5" parent="." instance=ExtResource("1_f570g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 80.2417, 0, 0)
+
+[node name="CollisionShape3D" parent="PlatformRectangle5" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.9194, -0.5, 0)
+shape = SubResource("BoxShape3D_wsbhf")
+
+[node name="MeshInstance3D3" parent="PlatformRectangle5" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.0218, -25, 0)
+mesh = SubResource("BoxMesh_ge588")
+
 [node name="Background" type="Node3D" parent="."]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Background"]
-transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 62.0231, 3.13421, -2)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 56.4329, -2.29426, -2)
 mesh = SubResource("PlaneMesh_n1k4j")
 skeleton = NodePath("../..")
 
@@ -54,8 +65,6 @@ skeleton = NodePath("../..")
 [node name="Path3D" parent="PlatformCustomCurves" index="1"]
 curve = SubResource("Curve3D_ngik5")
 
-[node name="CSGPolygon3D" parent="PlatformCustomCurves" index="2"]
-visible = false
-
 [editable path="PlatformRectangle4"]
+[editable path="PlatformRectangle5"]
 [editable path="PlatformCustomCurves"]

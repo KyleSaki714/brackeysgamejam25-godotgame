@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://ddcmagkpgy814"]
+
+[ext_resource type="Texture2D" uid="uid://byxgh2bwfrl20" path="res://assets/Objects/Environment_Home_20250218_234106.png" id="1_lhtqo"]
+[ext_resource type="Script" path="res://Areas/Triggers/Trigger.gd" id="1_tyqey"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_cboby"]
+size = Vector3(20, 20, 5)
+
+[node name="Home" type="Area3D"]
+collision_layer = 2
+collision_mask = 0
+script = ExtResource("1_tyqey")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10, 0)
+shape = SubResource("BoxShape3D_cboby")
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(3.5796, 0, 0, 0, 3.5796, 0, 0, 0, 3.5796, 0, 10.3551, -2.68598)
+texture = ExtResource("1_lhtqo")
