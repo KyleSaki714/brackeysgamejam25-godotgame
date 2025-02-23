@@ -38,11 +38,11 @@ orientation = 2
 environment = SubResource("Environment_3mh0e")
 
 [node name="Bike" parent="." node_paths=PackedStringArray("_spawnpoints") instance=ExtResource("2_pbg5e")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 270.474, 242.899, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.20943, 329.22, 0)
 _spawnpoints = NodePath("../SpawnPoints")
 
 [node name="GameCamera" parent="." node_paths=PackedStringArray("_bike", "_follow_target", "_look_target") instance=ExtResource("3_lk8vx")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 278.823, 236.924, 49.7549)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.5593, 323.245, 49.7549)
 _bike = NodePath("../Bike")
 _follow_target = NodePath("../Bike/CamFollowTarget")
 _look_target = NodePath("../Bike/CamLookTarget")
@@ -135,9 +135,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2554.32, -137.108, 0)
 
 [node name="DeathTrigger" parent="DeathTriggers" instance=ExtResource("3_kvqua")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -116.21, 188.176, 0)
-
-[node name="DeathTriggertest" parent="DeathTriggers" instance=ExtResource("3_kvqua")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 349.242, 246.436, 0)
 
 [node name="DeathTrigger2" parent="DeathTriggers" instance=ExtResource("3_kvqua")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 249.312, 202.302, 0)

@@ -60,9 +60,12 @@ func _integrate_forces(state: PhysicsDirectBodyState3D) -> void:
 	state.set_linear_velocity(setVel)
 	#print(get_linear_velocity().length())
 	
+	
 	# 
 	_speedVal = state.get_linear_velocity().length() / MAX_SPEED
 	#print(_speedVal)
+	$sfx/bikecoasting.volume_db = 20 * _speedVal - 10
+	print($sfx/bikecoasting.volume_db)
 	
 	# - JUMP -
 	# it's a little hop to get over ~5m. 
