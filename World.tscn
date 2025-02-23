@@ -193,13 +193,13 @@ size = Vector3(104.516, 124.078, 5)
 environment = SubResource("Environment_3mh0e")
 
 [node name="Bike" parent="." node_paths=PackedStringArray("_sunset", "_worldEnv", "_spawnpoints") instance=ExtResource("2_pbg5e")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1904.51, -21.7988, 6.10352e-05)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.7647, 330.105, 0)
 _sunset = NodePath("../Background/sun/DirectionalLight3D")
 _worldEnv = NodePath("../WorldEnvironment")
 _spawnpoints = NodePath("../SpawnPoints")
 
 [node name="GameCamera" parent="." node_paths=PackedStringArray("_bike", "_follow_target", "_look_target") instance=ExtResource("3_lk8vx")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1912.86, -27.7738, 49.755)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.1145, 324.13, 49.7549)
 _bike = NodePath("../Bike")
 _follow_target = NodePath("../Bike/CamFollowTarget")
 _look_target = NodePath("../Bike/CamLookTarget")

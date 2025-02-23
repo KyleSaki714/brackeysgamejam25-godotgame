@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://dg6p1qquywry7"]
+[gd_scene load_steps=25 format=3 uid="uid://dg6p1qquywry7"]
 
 [ext_resource type="Script" path="res://Bike.gd" id="1_i3ogk"]
 [ext_resource type="Texture2D" uid="uid://sj54l6gl60lt" path="res://assets/Objects/Biker_CycleAnim_Frame1_20250218_232909.png" id="2_s5war"]
@@ -75,6 +75,9 @@ height = 2.77263
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_6jn7f"]
 size = Vector3(5.278, 6.254, 3)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_t71k7"]
+size = Vector3(3.53931, 4.63672, 3)
 
 [node name="Bike" type="VehicleBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.711944, 0)
@@ -198,8 +201,20 @@ autoplay = true
 [node name="RespawningDrawingTimer" type="Timer" parent="."]
 wait_time = 0.2
 
+[node name="FailDetector" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="FailDetector"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0142822, 3.32956, 0)
+shape = SubResource("BoxShape3D_t71k7")
+
+[node name="FailDetectTimer" type="Timer" parent="."]
+wait_time = 2.4
+
 [connection signal="area_entered" from="AreaManager" to="." method="_on_area_manager_area_entered_trigger"]
 [connection signal="area_entered" from="AreaManager" to="." method="_on_area_manager_area_entered"]
 [connection signal="area_exited" from="AreaManager" to="." method="_on_area_manager_area_exited_trigger"]
 [connection signal="area_exited" from="AreaManager" to="." method="_on_area_manager_area_exited"]
 [connection signal="timeout" from="RespawningDrawingTimer" to="." method="checkKeyPressedforrespawnanim"]
+[connection signal="area_entered" from="FailDetector" to="." method="_on_fail_detector_area_entered"]
+[connection signal="area_exited" from="FailDetector" to="." method="_on_fail_detector_area_exited"]
+[connection signal="timeout" from="FailDetectTimer" to="." method="_on_fail_detect_timer_timeout"]

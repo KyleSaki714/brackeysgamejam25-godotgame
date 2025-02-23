@@ -36,6 +36,8 @@ var _isRespawning = false # is still drawing himself after respawn.
 var _lastDeathPos: Vector3 
 var _lockBike = false
 
+var _failDetectCurrentArea
+
 #enum {
 	#COASTING,
 	#DRIVING
@@ -47,7 +49,9 @@ func _ready():
 func _process(delta: float) -> void:
 	if (_isRespawning and Input.is_anything_pressed()):
 		_isRespawning = false
-		
+	
+	if Input.is_action_just_pressed("kill button"):
+		death()
 
 func _integrate_forces(state: PhysicsDirectBodyState3D) -> void:
 	# - SPEED CAP -
@@ -67,7 +71,7 @@ func _integrate_forces(state: PhysicsDirectBodyState3D) -> void:
 	_speedVal = state.get_linear_velocity().length() / MAX_SPEED
 	#print(_speedVal)
 	$sfx/bikecoasting.volume_db = 20 * _speedVal - 10
-	print($sfx/bikecoasting.volume_db)
+	#print($sfx/bikecoasting.volume_db)
 	
 	# - JUMP -
 	# it's a little hop to get over ~5m. 
@@ -236,3 +240,18 @@ func _on_area_manager_area_entered_trigger(area: Trigger) -> void:
 func _on_area_manager_area_exited_trigger(area: Trigger) -> void:
 	print("phartedd")
 	
+
+func _on_fail_detector_area_entered(area: Area3D) -> void:
+	print("fail could be happening")
+	_failDetectCurrentArea = area
+	$FailDetectTimer.start()
+
+func _on_fail_detector_area_exited(area: Area3D) -> void:
+	if (_failDetectCurrentArea == area):
+		_failDetectCurrentArea == null
+	$FailDetectTimer.stop()
+	print("fail evaded")
+
+func _on_fail_detect_timer_timeout() -> void:
+	if (_failDetectCurrentArea):
+		death()
