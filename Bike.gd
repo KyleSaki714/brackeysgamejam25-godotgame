@@ -22,6 +22,8 @@ var _isGrounded = false
 # POWERUPS
 var _unlockedSpeed = false
 
+var _gameEnd = false
+
 #enum {
 	#COASTING,
 	#DRIVING
@@ -60,7 +62,7 @@ func _physics_process(delta: float):
 	# - GAS -
 	var cycling = Input.get_axis("backward", "forward")
 	checkCycleAnim(cycling)
-	if cycling:
+	if not _gameEnd and cycling:
 		engine_force += cycling * ENGINE_ACCEL
 		engine_force = clampf(engine_force, ENGINE_POWER * -1, ENGINE_POWER)
 	else:
@@ -72,7 +74,7 @@ func _physics_process(delta: float):
 	# apply torque
 	var tiltAxis = Input.get_axis("tilt left", "tilt right")
 	checkTiltAnim(tiltAxis)
-	if (tiltAxis != 0):
+	if (not _gameEnd and tiltAxis != 0):
 		var torqueConstant = tiltAxis * _torquePower * -1
 		#print(PhysicsServer3D.body_get_direct_state(get_rid()).inverse_inertia)
 		apply_torque(transform.basis.z * torqueConstant)
@@ -93,6 +95,10 @@ func _physics_process(delta: float):
 	
 
 func checkCycleAnim(axisValue):
+	if _gameEnd:
+		$Graphics/Legs.stop()
+		return
+	
 	if (axisValue > 0):
 		$Graphics/Legs.play("Pedaling")
 	elif (axisValue < 0):
@@ -101,6 +107,12 @@ func checkCycleAnim(axisValue):
 		$Graphics/Legs.stop()
 
 func checkTiltAnim(axisValue):
+	if _gameEnd:
+		$Graphics/Coast.show()
+		$Graphics/LeanBack.hide()
+		$Graphics/LeanForward.hide()
+		return
+	
 	if (axisValue > 0):
 		$Graphics/Coast.hide()
 		$Graphics/LeanBack.hide()
@@ -126,6 +138,10 @@ func _on_area_manager_area_exited(area: Powerup) -> void:
 
 func _on_area_manager_area_entered_trigger(area: Trigger) -> void:
 	print("phart")
+	if area.trigger_type == Trigger.TRIGGER_TYPES.ENDGAME:
+		_gameEnd = true
+		await get_tree().create_timer(5.0).timeout
+		get_tree().change_scene_to_file("res://Screens/EndScreen.tscn")
 
 func _on_area_manager_area_exited_trigger(area: Trigger) -> void:
 	print("phartedd")

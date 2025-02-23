@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://ca3ocln6jjyi6"]
+[gd_scene load_steps=7 format=3 uid="uid://ca3ocln6jjyi6"]
 
 [ext_resource type="PackedScene" uid="uid://b2w80cyadsfv2" path="res://Areas/Platforms/PlatformRectangle.tscn" id="1_wfpbb"]
 [ext_resource type="Material" uid="uid://c1448lhcffexi" path="res://assets/Textures/Texture_LinedPaper.tres" id="2_hwkg1"]
@@ -10,6 +10,9 @@ size = Vector3(300, 1, 3)
 [sub_resource type="BoxMesh" id="BoxMesh_tklqc"]
 material = ExtResource("2_hwkg1")
 size = Vector3(300, 50, 3)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_4iby2"]
+size = Vector3(23.5313, 37.3862, 5)
 
 [node name="AreaHome" type="Node3D"]
 
@@ -27,5 +30,11 @@ mesh = SubResource("BoxMesh_tklqc")
 
 [node name="Home" parent="." instance=ExtResource("3_cixn0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 246, 0, 0)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 277.015, 18.2269, 0)
+shape = SubResource("BoxShape3D_4iby2")
 
 [editable path="PlatformRectangle"]

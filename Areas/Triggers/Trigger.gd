@@ -3,9 +3,9 @@ extends Area3D
 class_name Trigger
 
 enum TRIGGER_TYPES {
-	ENDHOME,
+	ENDGAME,
 	SUNSET,
 	NIGHTTIME
 }
 
-@export var power_type: TRIGGER_TYPES
+@export var trigger_type: TRIGGER_TYPES
