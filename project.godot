@@ -67,6 +67,10 @@ DEBUG_cam_zoom_in={
 ]
 }
 
+[layer_names]
+
+3d_physics/layer_2="powerups"
+
 [physics]
 
 3d/default_gravity=13.0

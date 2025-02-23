@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://cde7rcehautca"]
+[gd_scene load_steps=19 format=3 uid="uid://cde7rcehautca"]
 
 [ext_resource type="PackedScene" uid="uid://dg6p1qquywry7" path="res://Bike.tscn" id="2_pbg5e"]
 [ext_resource type="PackedScene" uid="uid://bi7rb6kshvy0f" path="res://GameCamera.tscn" id="3_lk8vx"]
@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://dxnjwnemyjfi2" path="res://Areas/Area7.tscn" id="10_pyuek"]
 [ext_resource type="PackedScene" uid="uid://c2kmet05pu45d" path="res://Areas/Area4.tscn" id="11_jlkws"]
 [ext_resource type="PackedScene" uid="uid://dkjl8vs3kdk2g" path="res://Areas/Area6.tscn" id="12_ly46q"]
+[ext_resource type="PackedScene" uid="uid://fyhl8yvereyb" path="res://Areas/Powerups/ZoneUnlockedSpeed.tscn" id="13_ee1p7"]
 [ext_resource type="PackedScene" uid="uid://ubmespmj3gkq" path="res://Areas/Area12.tscn" id="13_lxweo"]
 
 [sub_resource type="Environment" id="Environment_3mh0e"]
@@ -34,10 +35,10 @@ orientation = 2
 environment = SubResource("Environment_3mh0e")
 
 [node name="Bike" parent="." instance=ExtResource("2_pbg5e")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2389.09, -122.426, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2036.02, -22.3297, 0)
 
 [node name="GameCamera" parent="." node_paths=PackedStringArray("_follow_target", "_look_target") instance=ExtResource("3_lk8vx")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2397.44, -123.456, 49.7549)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2044.37, -23.3596, 49.7549)
 _follow_target = NodePath("../Bike/CamFollowTarget")
 _look_target = NodePath("../Bike/CamLookTarget")
 
@@ -75,6 +76,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1744.68, 15.8678, 0)
 
 [node name="Area6" parent="AreasContainer" instance=ExtResource("12_ly46q")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1956.27, -23.9404, 0)
+
+[node name="UnlockedSpeedZone" parent="AreasContainer" instance=ExtResource("13_ee1p7")]
 
 [node name="Area12" parent="AreasContainer" instance=ExtResource("13_lxweo")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2457.64, -137.766, 0)

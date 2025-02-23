@@ -7,11 +7,11 @@ func _ready() -> void:
 	#var polygon = curve.get_baked_points()
 	
 	var curvePoints3d = $Path3D.curve.get_baked_points()
-	print($Path3D.curve.get_baked_points())
+	#print($Path3D.curve.get_baked_points())
 	$CollisionPolygon3D.polygon = convertPackedV3ArrayIntoPackedV2Array(curvePoints3d)
 	#print(type_string(typeof($Path3D.curve.get_baked_points())))
-	print($CollisionPolygon3D.polygon)
-	print("created polygon")
+	#print($CollisionPolygon3D.polygon)
+	#print("created polygon")
 
 
 func convertPackedV3ArrayIntoPackedV2Array(v3arr: PackedVector3Array) -> PackedVector2Array:

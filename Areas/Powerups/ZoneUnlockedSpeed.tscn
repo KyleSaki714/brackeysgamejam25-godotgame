@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://fyhl8yvereyb"]
+
+[ext_resource type="Script" path="res://Areas/Powerups/PowerupPickup.gd" id="1_km1jc"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_be5w3"]
+size = Vector3(484.082, 123.909, 5)
+
+[node name="UnlockedSpeedZone" type="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2319.5, -101.017, 0)
+collision_layer = 2
+collision_mask = 0
+script = ExtResource("1_km1jc")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.999996, 0, 0, 0, 0.999996, 0, 0, 0, 1, -47.2849, 14.6617, 0)
+shape = SubResource("BoxShape3D_be5w3")

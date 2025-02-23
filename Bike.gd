@@ -8,6 +8,7 @@ extends VehicleBody3D
 @export var ENGINE_POWER = 125 # max horsepower
 const ENGINE_ACCEL = 40
 @export var MAX_SPEED = 34.0
+const SPEEDUNLOCKBONUS = 20.0
 @export var _torquePower = 175 # "tilt" power
 @export var COMSHIFT = 1 # how far from the center the center of mass shifts while tilting
 @export var COMSHIFTACCEL = 0.1 # how fast the center of mass shifts when tilting
@@ -18,6 +19,9 @@ var _currentCenterOfMassShift: float = 0
 var _speedVal = 0.0;
 var _isGrounded = false
 
+# POWERUPS
+var _unlockedSpeed = false
+
 #enum {
 	#COASTING,
 	#DRIVING
@@ -27,7 +31,13 @@ func _integrate_forces(state: PhysicsDirectBodyState3D) -> void:
 	# - SPEED CAP -
 	#linear_velocity.clampf(0, 35.0)
 	#linear_velocity = linear_velocity.clampf(-30.0, 30.0)
-	state.set_linear_velocity(get_linear_velocity().clampf(-MAX_SPEED, MAX_SPEED))
+	var setVel = 0
+	if (_unlockedSpeed):
+		setVel = get_linear_velocity().clampf(-MAX_SPEED + SPEEDUNLOCKBONUS, MAX_SPEED + SPEEDUNLOCKBONUS)
+	else:
+		setVel = get_linear_velocity().clampf(-MAX_SPEED, MAX_SPEED)
+	
+	state.set_linear_velocity(setVel)
 	print(get_linear_velocity().length())
 	
 	# 
@@ -103,3 +113,15 @@ func checkTiltAnim(axisValue):
 		$Graphics/Coast.show()
 		$Graphics/LeanBack.hide()
 		$Graphics/LeanForward.hide()
+
+func _on_powerup_manager_area_entered(area: Powerup) -> void:
+	print("area entered")
+	if area.power_type == Powerup.POWER_TYPES.UNLOCKSPEED:
+		_unlockedSpeed = true
+		print("UNLOCK SPEED!!!")
+		
+func _on_powerup_manager_area_exited(area: Powerup) -> void:
+	print("area exited")
+	if area.power_type == Powerup.POWER_TYPES.UNLOCKSPEED:
+		_unlockedSpeed = false
+		print("LOCK SPEED!!! SLOWW!!")

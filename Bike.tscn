@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://dg6p1qquywry7"]
+[gd_scene load_steps=17 format=3 uid="uid://dg6p1qquywry7"]
 
 [ext_resource type="Script" path="res://Bike.gd" id="1_i3ogk"]
 [ext_resource type="Texture2D" uid="uid://sj54l6gl60lt" path="res://assets/Objects/Biker_CycleAnim_Frame1_20250218_232909.png" id="2_s5war"]
@@ -57,6 +57,9 @@ height = 1.90757
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ai0vr"]
 radius = 0.75
 height = 2.77263
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_6jn7f"]
+size = Vector3(5.278, 6.254, 3)
 
 [node name="Bike" type="VehicleBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.711944, 0)
@@ -144,3 +147,14 @@ shape = SubResource("CapsuleShape3D_rvmvi")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.35772, 0)
 shape = SubResource("CapsuleShape3D_ai0vr")
+
+[node name="PowerupManager" type="Area3D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PowerupManager"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0827637, 2.69061, 0)
+shape = SubResource("BoxShape3D_6jn7f")
+
+[connection signal="area_entered" from="PowerupManager" to="." method="_on_powerup_manager_area_entered"]
+[connection signal="area_exited" from="PowerupManager" to="." method="_on_powerup_manager_area_exited"]
