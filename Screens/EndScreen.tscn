@@ -1,7 +1,62 @@
-[gd_scene load_steps=3 format=3 uid="uid://df3b3n1gmiaxj"]
+[gd_scene load_steps=9 format=3 uid="uid://df3b3n1gmiaxj"]
 
 [ext_resource type="Script" path="res://Screens/EndScreen.gd" id="1_c8knl"]
 [ext_resource type="Texture2D" uid="uid://bf0bumvh52ymn" path="res://assets/Textures/woodendesktexture.jpg" id="1_lof5n"]
+[ext_resource type="Texture2D" uid="uid://cggff584hq6kw" path="res://assets/ComicPanels/20250222-225445.jpeg" id="3_t5f4h"]
+[ext_resource type="Texture2D" uid="uid://3supkfe0fni1" path="res://assets/ComicPanels/20250222-230545.jpeg" id="4_ufmeq"]
+
+[sub_resource type="Animation" id="Animation_hm6r4"]
+resource_name = "flippage"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Panel2:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.44),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-260, -100), Vector2(-260, -745)]
+}
+
+[sub_resource type="Animation" id="Animation_a6a76"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Panel2:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-260, -745)]
+}
+
+[sub_resource type="Animation" id="Animation_vikq2"]
+resource_name = "enter"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Panel2:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-260, 658), Vector2(-260, -100)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0wqls"]
+_data = {
+"RESET": SubResource("Animation_a6a76"),
+"enter": SubResource("Animation_vikq2"),
+"flippage": SubResource("Animation_hm6r4")
+}
 
 [node name="EndScreen" type="Control"]
 layout_mode = 3
@@ -12,7 +67,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_c8knl")
 
-[node name="TextureRect" type="TextureRect" parent="."]
+[node name="Desk" type="TextureRect" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -22,18 +77,54 @@ grow_vertical = 2
 texture = ExtResource("1_lof5n")
 expand_mode = 3
 
+[node name="Panel1" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -21.0
+offset_top = -129.0
+offset_right = -21.0
+offset_bottom = 713.957
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.973048, 0.973048)
+texture = ExtResource("3_t5f4h")
+expand_mode = 5
+
+[node name="Panel2" type="TextureRect" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -260.0
+offset_top = -745.0
+offset_right = -260.0
+offset_bottom = 97.9565
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.22271, 1.22271)
+texture = ExtResource("4_ufmeq")
+expand_mode = 5
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Panel2"]
+root_node = NodePath("../..")
+libraries = {
+"": SubResource("AnimationLibrary_0wqls")
+}
+
 [node name="Button" type="Button" parent="."]
 layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
+anchors_preset = 2
 anchor_top = 1.0
-anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -245.0
 offset_top = -131.0
-offset_right = 245.0
-grow_horizontal = 2
+offset_right = 490.0
 grow_vertical = 0
-text = "Bye"
+scale = Vector2(0.481919, 0.481919)
+theme_override_font_sizes/font_size = 75
+text = "Next
+"
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
