@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://dg6p1qquywry7"]
+[gd_scene load_steps=23 format=3 uid="uid://dg6p1qquywry7"]
 
 [ext_resource type="Script" path="res://Bike.gd" id="1_i3ogk"]
 [ext_resource type="Texture2D" uid="uid://sj54l6gl60lt" path="res://assets/Objects/Biker_CycleAnim_Frame1_20250218_232909.png" id="2_s5war"]
@@ -8,6 +8,10 @@
 [ext_resource type="Texture2D" uid="uid://dmn12nam75oqe" path="res://assets/Objects/Biker_Torso_Coast_20250218_232538.png" id="6_3ntpk"]
 [ext_resource type="Texture2D" uid="uid://btdv77d1qxvwy" path="res://assets/Objects/Biker_Torso_LeanBack_20250218_232730.png" id="7_dfooq"]
 [ext_resource type="Texture2D" uid="uid://cm7bs8hwd47k" path="res://assets/Objects/Biker_Torso_LeanForward20250218_232342.png" id="8_u8fq8"]
+[ext_resource type="Texture2D" uid="uid://dfnn78thpc74v" path="res://assets/ComicPanels/20250222_231904.png" id="9_2kom7"]
+[ext_resource type="AudioStream" uid="uid://d3fqj46s64ghg" path="res://Audio/Paper Draw 1.wav" id="10_a5jnd"]
+[ext_resource type="AudioStream" uid="uid://cy08rltiec2ms" path="res://Audio/Paper Draw 2.wav" id="11_si5mj"]
+[ext_resource type="AudioStream" uid="uid://cuhsluxaxi6mp" path="res://Audio/Paper Draw 3.wav" id="12_bgthj"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_q1e04"]
 friction = 0.1
@@ -40,6 +44,16 @@ animations = [{
 "name": &"Stopped",
 "speed": 5.0
 }]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xy2t4"]
+transparency = 1
+shading_mode = 0
+albedo_texture = ExtResource("9_2kom7")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_i2ltk"]
+material = SubResource("StandardMaterial3D_xy2t4")
+size = Vector2(8, 8)
+orientation = 2
 
 [sub_resource type="BoxMesh" id="BoxMesh_b8d4s"]
 size = Vector3(2, 1, 0.5)
@@ -97,6 +111,13 @@ texture = ExtResource("7_dfooq")
 transform = Transform3D(0.792414, 0, 0, 0, 0.792414, 0, 0, 0, 0.792414, -0.132004, 3.77918, 0.0954285)
 visible = false
 texture = ExtResource("8_u8fq8")
+
+[node name="RespawnGraphic" type="Node3D" parent="."]
+visible = false
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="RespawnGraphic"]
+transform = Transform3D(0.931864, 0, 0, 0, 0.931864, 0, 0, 0, 0.931864, -0.953782, 2.76911, 0)
+mesh = SubResource("PlaneMesh_i2ltk")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.950065, 0)
@@ -156,10 +177,23 @@ collision_mask = 2
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0827637, 2.69061, 0)
 shape = SubResource("BoxShape3D_6jn7f")
 
-[node name="Timer" type="Timer" parent="."]
-wait_time = 4.0
+[node name="sfx" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.711944, 0)
+
+[node name="paperdraw1" type="AudioStreamPlayer3D" parent="sfx"]
+stream = ExtResource("10_a5jnd")
+
+[node name="paperdraw2" type="AudioStreamPlayer3D" parent="sfx"]
+stream = ExtResource("11_si5mj")
+
+[node name="paperdraw3" type="AudioStreamPlayer3D" parent="sfx"]
+stream = ExtResource("12_bgthj")
+
+[node name="RespawningDrawingTimer" type="Timer" parent="."]
+wait_time = 0.2
 
 [connection signal="area_entered" from="AreaManager" to="." method="_on_area_manager_area_entered_trigger"]
 [connection signal="area_entered" from="AreaManager" to="." method="_on_area_manager_area_entered"]
 [connection signal="area_exited" from="AreaManager" to="." method="_on_area_manager_area_exited_trigger"]
 [connection signal="area_exited" from="AreaManager" to="." method="_on_area_manager_area_exited"]
+[connection signal="timeout" from="RespawningDrawingTimer" to="." method="checkKeyPressedforrespawnanim"]

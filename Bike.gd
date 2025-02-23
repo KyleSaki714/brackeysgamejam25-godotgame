@@ -29,7 +29,8 @@ var _isGrounded = false
 # POWERUPS
 var _unlockedSpeed = false
 
-
+var _randy
+var _isRespawning = false # is still drawing himself after respawn.
 var _lastDeathPos: Vector3 
 var _lockBike = false
 
@@ -37,6 +38,14 @@ var _lockBike = false
 	#COASTING,
 	#DRIVING
 #}
+
+func _ready():
+	_randy = RandomNumberGenerator.new()
+
+func _process(delta: float) -> void:
+	if (_isRespawning and Input.is_anything_pressed()):
+		_isRespawning = false
+		
 
 func _integrate_forces(state: PhysicsDirectBodyState3D) -> void:
 	# - SPEED CAP -
@@ -135,10 +144,34 @@ func death():
 	await get_tree().create_timer(DEATHTIMER).timeout
 	
 	_lockBike = false
-	$Graphics.show()
 	set_global_position(respawnPoint)
+	_isRespawning = true
 	rotation = Vector3.ZERO
+	$RespawnGraphic.show()
+	$RespawningDrawingTimer.start()
+	playDrawingSounds()
 
+func checkKeyPressedforrespawnanim():
+	if (not _isRespawning):
+		$Graphics.show()
+		$RespawnGraphic.hide()
+		$RespawningDrawingTimer.stop()
+		$sfx/paperdraw1.stop()
+		$sfx/paperdraw2.stop()
+		$sfx/paperdraw3.stop()
+	else:
+		playDrawingSounds()
+
+func playDrawingSounds():
+	var randint = _randy.randi_range(1, 3)
+	match randint:
+		1:
+			$sfx/paperdraw1.play()
+		2:
+			$sfx/paperdraw2.play()
+		3:
+			$sfx/paperdraw3.play()
+	
 func checkCycleAnim(axisValue):
 	if _lockBike:
 		$Graphics/Legs.stop()
