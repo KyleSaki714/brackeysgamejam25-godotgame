@@ -1,10 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://cm2qqx4xalftm"]
+[gd_scene load_steps=4 format=3 uid="uid://cm2qqx4xalftm"]
 
 [ext_resource type="Script" path="res://Areas/Terrain.gd" id="1_oyfje"]
 [ext_resource type="Texture2D" uid="uid://djmjlvdol8i0x" path="res://assets/Textures/graphitetexture.jpg" id="2_jfv31"]
-
-[sub_resource type="Curve3D" id="Curve3D_cg6to"]
-bake_interval = 10.0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2fk31"]
 albedo_color = Color(0.47788, 0.47788, 0.47788, 1)
@@ -19,7 +16,6 @@ polygon = PackedVector2Array(0, 0, 0, 0)
 margin = 10.0
 
 [node name="Path3D" type="Path3D" parent="."]
-curve = SubResource("Curve3D_cg6to")
 
 [node name="CSGPolygon3D" type="CSGPolygon3D" parent="."]
 mode = 2

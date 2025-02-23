@@ -25,12 +25,12 @@ size = Vector3(30, 1, 3)
 material = ExtResource("3_3vdfc")
 size = Vector3(30, 50, 3)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_blj7p"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wgrx5"]
 albedo_texture = ExtResource("6_m7gtb")
 uv2_scale = Vector3(5, 5, 5)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_so7nw"]
-material = SubResource("StandardMaterial3D_blj7p")
+material = SubResource("StandardMaterial3D_wgrx5")
 size = Vector2(60, 77.647)
 orientation = 2
 

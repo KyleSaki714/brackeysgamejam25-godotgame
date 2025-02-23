@@ -1,0 +1,101 @@
+[gd_scene load_steps=12 format=3 uid="uid://c2kmet05pu45d"]
+
+[ext_resource type="PackedScene" uid="uid://b2w80cyadsfv2" path="res://Areas/Platforms/PlatformRectangle.tscn" id="1_5ch16"]
+[ext_resource type="Material" uid="uid://c1448lhcffexi" path="res://assets/Textures/Texture_LinedPaper.tres" id="2_82asm"]
+[ext_resource type="Texture2D" uid="uid://vcw0w27hirda" path="res://assets/Textures/Write_Your_Story_Blank_Lined_Notebook_Paper_Creative_Commons_(4812267249).jpg" id="3_a2y0i"]
+[ext_resource type="PackedScene" uid="uid://cm2qqx4xalftm" path="res://Areas/Platforms/PlatformCustomCurves.tscn" id="3_chqa3"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ji72d"]
+size = Vector3(61, 1, 3)
+
+[sub_resource type="BoxMesh" id="BoxMesh_mg4dp"]
+material = ExtResource("2_82asm")
+size = Vector3(61, 50, 3)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_xex73"]
+size = Vector3(30, 1, 3)
+
+[sub_resource type="BoxMesh" id="BoxMesh_k5f71"]
+material = ExtResource("2_82asm")
+size = Vector3(30, 50, 3)
+
+[sub_resource type="Curve3D" id="Curve3D_oq8tn"]
+bake_interval = 5.0
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 115.871, -15.1693, 0.0683594, 0, 0, 0, 0, 0, 0, 118.242, -14.9797, 0.0675049, 0, 0, 0, 0, 0, 0, 118.194, -12.9414, 0.0585938, 0, 0, 0, 0, 0, 0, 121.451, -12.7992, 0.0579834, 0, 0, 0, 0, 0, 0, 121.451, -10.7609, 0.0490723, 0, 0, 0, 0, 0, 0, 124.815, -10.6186, 0.0483398, 0, 0, 0, 0, 0, 0, 124.91, -8.53292, 0.0393066, 0, 0, 0, 0, 0, 0, 128.11, -8.43811, 0.0388184, 0, 0, 0, 0, 0, 0, 128.11, -6.06796, 0.0285645, 0, 0, 0, 0, 0, 0, 132.139, -6.11536, 0.0286865, 0, 0, 0, 0, 0, 0, 132.092, -8.43811, 0.0388184, 0, 0, 0, 0, 0, 0, 135.893, -8.43811, 0.0388184, 0, 0, 0, 0, 0, 0, 135.893, -10.5238, 0.0479736, 0, 0, 0, 0, 0, 0, 139.947, -10.5712, 0.0482178, 0, 0, 0, 0, 0, 0, 139.852, -12.7992, 0.0578613, 0, 0, 0, 0, 0, 0, 143.312, -12.8466, 0.0581055, 0, 0, 0, 0, 0, 0, 143.075, -14.7901, 0.0666504, 0, 0, 0, 0, 0, 0, 145.729, -14.6953, 0.0661621, 0, 0, 0, 0, 0, 0, 139.825, -19.1791, 0.0856934, 0, 0, 0, 0, 0, 0, 139.368, -15.9087, 0.0714111, 0, 0, 0, 0, 0, 0, 135.079, -18.1143, 0.0809326, 0, 0, 0, 0, 0, 0, 135.307, -21.1565, 0.0942383, 0, 0, 0, 0, 0, 0, 129.593, -24.1539, 0.105835, 0, 0, 0, 0, 0, 0, 115.871, -15.1693, 0.0683594),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+}
+point_count = 24
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_blj7p"]
+albedo_texture = ExtResource("3_a2y0i")
+uv2_scale = Vector3(5, 5, 5)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_jnbky"]
+material = SubResource("StandardMaterial3D_blj7p")
+size = Vector2(60, 77.647)
+orientation = 2
+
+[node name="Area4" type="Node3D"]
+
+[node name="PlatformRectangle" parent="." instance=ExtResource("1_5ch16")]
+
+[node name="CollisionShape3D" parent="PlatformRectangle" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.4192, -0.5, 0)
+shape = SubResource("BoxShape3D_ji72d")
+
+[node name="MeshInstance3D3" parent="PlatformRectangle" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.549, -25, 0)
+mesh = SubResource("BoxMesh_mg4dp")
+
+[node name="PlatformRectangle4" parent="." instance=ExtResource("1_5ch16")]
+transform = Transform3D(0.866025, 0.5, 0, -0.5, 0.866025, 0, 0, 0, 1, 60.9675, -0.00604868, 0)
+
+[node name="CollisionShape3D" parent="PlatformRectangle4" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.0885, -0.792866, 0)
+shape = SubResource("BoxShape3D_xex73")
+
+[node name="MeshInstance3D3" parent="PlatformRectangle4" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.0218, -25, 0)
+mesh = SubResource("BoxMesh_k5f71")
+
+[node name="PlatformRectangle5" parent="." instance=ExtResource("1_5ch16")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 85.9675, -15.006, 0)
+
+[node name="CollisionShape3D" parent="PlatformRectangle5" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.0885, -0.792866, 0)
+shape = SubResource("BoxShape3D_xex73")
+
+[node name="MeshInstance3D3" parent="PlatformRectangle5" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.0218, -25, 0)
+mesh = SubResource("BoxMesh_k5f71")
+
+[node name="PlatformCustomCurves" parent="." instance=ExtResource("3_chqa3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.86328, -16.7031, 0)
+
+[node name="Path3D" parent="PlatformCustomCurves" index="1"]
+curve = SubResource("Curve3D_oq8tn")
+
+[node name="PlatformRectangle2" parent="." instance=ExtResource("1_5ch16")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 150.721, -39.7788, 0)
+
+[node name="CollisionShape3D" parent="PlatformRectangle2" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.4192, -0.5, 0)
+shape = SubResource("BoxShape3D_ji72d")
+
+[node name="MeshInstance3D3" parent="PlatformRectangle2" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.549, -25, 0)
+mesh = SubResource("BoxMesh_mg4dp")
+
+[node name="Background" type="Node3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Background"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 135.022, -38.1228, -2)
+mesh = SubResource("PlaneMesh_jnbky")
+skeleton = NodePath("../..")
+
+[editable path="PlatformRectangle"]
+[editable path="PlatformRectangle4"]
+[editable path="PlatformRectangle5"]
+[editable path="PlatformCustomCurves"]
+[editable path="PlatformRectangle2"]

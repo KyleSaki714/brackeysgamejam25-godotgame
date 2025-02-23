@@ -1,0 +1,53 @@
+[gd_scene load_steps=8 format=3 uid="uid://dkjl8vs3kdk2g"]
+
+[ext_resource type="PackedScene" uid="uid://b2w80cyadsfv2" path="res://Areas/Platforms/PlatformRectangle.tscn" id="1_vrqr4"]
+[ext_resource type="Material" uid="uid://c1448lhcffexi" path="res://assets/Textures/Texture_LinedPaper.tres" id="2_xm31c"]
+[ext_resource type="PackedScene" uid="uid://cvh17gjsidfw1" path="res://Areas/Platforms/PlatformRectangleSOLID.tscn" id="3_bkig4"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_yfvaf"]
+size = Vector3(50, 1, 3)
+
+[sub_resource type="BoxMesh" id="BoxMesh_1ofkp"]
+material = ExtResource("2_xm31c")
+size = Vector3(50, 50, 3)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_jbkyg"]
+size = Vector3(447.542, 1, 3)
+
+[sub_resource type="BoxMesh" id="BoxMesh_ug3oy"]
+material = ExtResource("2_xm31c")
+size = Vector3(447, 50, 3)
+
+[node name="Area6" type="Node3D"]
+
+[node name="PlatformRectangle" parent="." instance=ExtResource("1_vrqr4")]
+
+[node name="CollisionShape3D" parent="PlatformRectangle" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25, -0.5, 0)
+shape = SubResource("BoxShape3D_yfvaf")
+
+[node name="MeshInstance3D3" parent="PlatformRectangle" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25, -25, 0)
+mesh = SubResource("BoxMesh_1ofkp")
+
+[node name="PlatformRectangle2" parent="." instance=ExtResource("1_vrqr4")]
+transform = Transform3D(0.967032, 0.254653, 0, -0.254653, 0.967032, 0, 0, 0, 1, 93.4764, -11.4623, 0)
+
+[node name="CollisionShape3D" parent="PlatformRectangle2" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 178.674, -0.55158, 0)
+shape = SubResource("BoxShape3D_jbkyg")
+
+[node name="MeshInstance3D3" parent="PlatformRectangle2" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 178.485, -25, 0)
+mesh = SubResource("BoxMesh_ug3oy")
+
+[node name="PlatformRectangle3" parent="." instance=ExtResource("3_bkig4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 481.505, -113.817, 0)
+
+[node name="Background" type="Node3D" parent="."]
+
+[node name="TODOUnlockedSpeedZone" type="Node3D" parent="Background"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 297.252, -56.9205, 0)
+
+[editable path="PlatformRectangle"]
+[editable path="PlatformRectangle2"]
