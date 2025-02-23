@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://cde7rcehautca"]
+[gd_scene load_steps=66 format=3 uid="uid://cde7rcehautca"]
 
 [ext_resource type="PackedScene" uid="uid://dg6p1qquywry7" path="res://Bike.tscn" id="2_pbg5e"]
 [ext_resource type="PackedScene" uid="uid://b7vwnfo1c06rm" path="res://Areas/Triggers/DeathTrigger.tscn" id="3_kvqua"]
@@ -18,6 +18,21 @@
 [ext_resource type="PackedScene" uid="uid://ubmespmj3gkq" path="res://Areas/Area12.tscn" id="13_lxweo"]
 [ext_resource type="PackedScene" uid="uid://bnnvx6j4q1n0g" path="res://Areas/Area3.tscn" id="15_wr2re"]
 [ext_resource type="PackedScene" uid="uid://ca3ocln6jjyi6" path="res://Areas/AreaHome.tscn" id="16_eff37"]
+[ext_resource type="PackedScene" uid="uid://cgidc0c7efmr4" path="res://Decor/StreetLamp.tscn" id="18_w74th"]
+[ext_resource type="PackedScene" uid="uid://cxai10ofkcvu8" path="res://Decor/Building.tscn" id="19_lbew1"]
+[ext_resource type="Texture2D" uid="uid://6pne8ohqyeyn" path="res://assets/Objects/Evironment_City_Building_20250218_233504.png" id="20_gv0q6"]
+[ext_resource type="Texture2D" uid="uid://cac642jy34p0o" path="res://assets/Objects/Evironment_City_Building_20250218_233343.png" id="21_tdk1q"]
+[ext_resource type="Texture2D" uid="uid://s1ja8id6lcd6" path="res://assets/Objects/Evironment_City_Building_20250218_233401.png" id="22_mb56g"]
+[ext_resource type="Texture2D" uid="uid://bjvg73ver0d3" path="res://assets/Objects/Evironment_City_Building_20250218_233533.png" id="23_7accc"]
+[ext_resource type="Texture2D" uid="uid://bu3dv5y3omr1c" path="res://assets/Objects/Evironment_City_Building_20250218_233601.png" id="24_w10hg"]
+[ext_resource type="Texture2D" uid="uid://sxxslu41xaky" path="res://assets/Objects/Evironment_City_Building_20250218_233625.png" id="25_ymnlv"]
+[ext_resource type="Texture2D" uid="uid://cixsikwq5j416" path="res://assets/ComicPanels/20250222_232023.png" id="26_gyqex"]
+[ext_resource type="Texture2D" uid="uid://dyvy0tvwyaya8" path="res://assets/ComicPanels/20250222_232009.png" id="26_mqtsq"]
+[ext_resource type="Texture2D" uid="uid://btbg7gm0kec5q" path="res://assets/ComicPanels/20250222_231951.png" id="27_mqlh4"]
+[ext_resource type="Texture2D" uid="uid://c8ukegi4g86tq" path="res://assets/ComicPanels/20250222_231938.png" id="28_iwdk6"]
+[ext_resource type="Texture2D" uid="uid://dwwa3c7fayhhj" path="res://assets/ComicPanels/20250222_231924.png" id="29_1u008"]
+[ext_resource type="Texture2D" uid="uid://ckx1mfwojc6q2" path="res://assets/ComicPanels/20250222_232126.png" id="30_5qogm"]
+[ext_resource type="Texture2D" uid="uid://cremfl05rj2yq" path="res://assets/ComicPanels/20250222_232159.png" id="31_b41kx"]
 
 [sub_resource type="Environment" id="Environment_3mh0e"]
 ambient_light_source = 3
@@ -30,6 +45,133 @@ albedo_texture = ExtResource("6_da5bw")
 [sub_resource type="PlaneMesh" id="PlaneMesh_vef3c"]
 material = SubResource("StandardMaterial3D_60bht")
 size = Vector2(800, 400)
+orientation = 2
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_f3b4o"]
+load_path = "res://.godot/imported/Evironment_City_Building_20250218_233429.png-6d102004c36dc958364ba15316967227.s3tc.ctex"
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tlnjq"]
+transparency = 1
+albedo_texture = SubResource("CompressedTexture2D_f3b4o")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_2stjc"]
+material = SubResource("StandardMaterial3D_tlnjq")
+orientation = 2
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3sy5k"]
+transparency = 1
+albedo_texture = ExtResource("20_gv0q6")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_4w7pd"]
+material = SubResource("StandardMaterial3D_3sy5k")
+orientation = 2
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sfmbu"]
+transparency = 1
+albedo_texture = ExtResource("21_tdk1q")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_g5y6f"]
+material = SubResource("StandardMaterial3D_sfmbu")
+size = Vector2(2, 4)
+orientation = 2
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4ms2g"]
+transparency = 1
+albedo_texture = ExtResource("22_mb56g")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_a3hdk"]
+material = SubResource("StandardMaterial3D_4ms2g")
+size = Vector2(2, 4)
+orientation = 2
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_r5gx1"]
+transparency = 1
+albedo_texture = ExtResource("23_7accc")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_vciy1"]
+material = SubResource("StandardMaterial3D_r5gx1")
+size = Vector2(2, 4)
+orientation = 2
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_x1qib"]
+transparency = 1
+albedo_texture = ExtResource("24_w10hg")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_fbnvu"]
+material = SubResource("StandardMaterial3D_x1qib")
+size = Vector2(2, 4)
+orientation = 2
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_q8fee"]
+transparency = 1
+albedo_texture = ExtResource("25_ymnlv")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_eqaky"]
+material = SubResource("StandardMaterial3D_q8fee")
+size = Vector2(2, 4)
+orientation = 2
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qpuud"]
+transparency = 1
+albedo_texture = ExtResource("26_mqtsq")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_ig3js"]
+material = SubResource("StandardMaterial3D_qpuud")
+size = Vector2(3, 3)
+orientation = 2
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ysjw3"]
+transparency = 1
+albedo_texture = ExtResource("27_mqlh4")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_ehyvm"]
+material = SubResource("StandardMaterial3D_ysjw3")
+size = Vector2(3, 3)
+orientation = 2
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nij0y"]
+transparency = 1
+albedo_texture = ExtResource("28_iwdk6")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_fr755"]
+material = SubResource("StandardMaterial3D_nij0y")
+size = Vector2(3, 3)
+orientation = 2
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ju5ry"]
+transparency = 1
+albedo_texture = ExtResource("29_1u008")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_xwkub"]
+material = SubResource("StandardMaterial3D_ju5ry")
+size = Vector2(3, 3)
+orientation = 2
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ff384"]
+transparency = 1
+albedo_texture = ExtResource("30_5qogm")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_3t715"]
+material = SubResource("StandardMaterial3D_ff384")
+size = Vector2(2.5, 3)
+orientation = 2
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_verps"]
+transparency = 1
+albedo_texture = ExtResource("31_b41kx")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_dqs8n"]
+material = SubResource("StandardMaterial3D_verps")
+size = Vector2(2.5, 3)
+orientation = 2
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_assqi"]
+transparency = 1
+albedo_texture = ExtResource("26_gyqex")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_jxhcx"]
+material = SubResource("StandardMaterial3D_assqi")
+size = Vector2(30, 30)
 orientation = 2
 
 [node name="World" type="Node3D"]
@@ -99,6 +241,107 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2746.83, -229.246, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 328.856, 217.124, -24.1049)
 mesh = SubResource("PlaneMesh_vef3c")
 
+[node name="StreetLamp" parent="Background" instance=ExtResource("18_w74th")]
+transform = Transform3D(4.26169, 0, 0, 0, 4.26169, 0, 0, 0, 4.26169, 37.4249, 336.484, -1.87327)
+
+[node name="StreetLamp2" parent="Background" instance=ExtResource("18_w74th")]
+transform = Transform3D(4.26169, 0, 0, 0, 4.26169, 0, 0, 0, 4.26169, 72.7259, 323.86, -1.87327)
+
+[node name="StreetLamp3" parent="Background" instance=ExtResource("18_w74th")]
+transform = Transform3D(4.26169, 0, 0, 0, 4.26169, 0, 0, 0, 4.26169, 99.6078, 245.944, -1.87327)
+
+[node name="StreetLamp4" parent="Background" instance=ExtResource("18_w74th")]
+transform = Transform3D(4.26169, 0, 0, 0, 4.26169, 0, 0, 0, 4.26169, 135.343, 237.116, -1.87327)
+
+[node name="StreetLamp5" parent="Background" instance=ExtResource("18_w74th")]
+transform = Transform3D(4.26169, 0, 0, 0, 4.26169, 0, 0, 0, 4.26169, 171.149, 238.129, -1.87327)
+
+[node name="StreetLamp6" parent="Background" instance=ExtResource("18_w74th")]
+transform = Transform3D(4.26169, 0, 0, 0, 4.26169, 0, 0, 0, 4.26169, 206.37, 252.851, -1.87327)
+
+[node name="MeshInstance3D2" parent="Background" instance=ExtResource("19_lbew1")]
+transform = Transform3D(10.1222, 0, 0, 0, 10.1222, 0, 0, 0, 10.1222, 783.976, 230.812, -1.41496)
+
+[node name="MeshInstance3D3" parent="Background" instance=ExtResource("19_lbew1")]
+transform = Transform3D(10.1222, 0, 0, 0, 10.1222, 0, 0, 0, 10.1222, 830.461, 230.512, -1.41496)
+mesh = SubResource("PlaneMesh_2stjc")
+
+[node name="MeshInstance3D4" parent="Background" instance=ExtResource("19_lbew1")]
+transform = Transform3D(18.7916, 0, 0, 0, 18.7916, 0, 0, 0, 18.7916, 936.557, 222.984, -1.41496)
+mesh = SubResource("PlaneMesh_4w7pd")
+
+[node name="MeshInstance3D5" parent="Background" instance=ExtResource("19_lbew1")]
+transform = Transform3D(10.8059, 0, 0, 0, 10.8059, 0, 0, 0, 10.8059, 1319.96, 162.322, -1.41495)
+mesh = SubResource("PlaneMesh_g5y6f")
+
+[node name="MeshInstance3D6" parent="Background" instance=ExtResource("19_lbew1")]
+transform = Transform3D(8.69281, 0, 0, 0, 8.69281, 0, 0, 0, 8.69281, 1360.97, 157.537, -1.41495)
+mesh = SubResource("PlaneMesh_a3hdk")
+
+[node name="MeshInstance3D7" parent="Background" instance=ExtResource("19_lbew1")]
+transform = Transform3D(8.69281, 0, 0, 0, 10.5803, 0, 0, 0, 8.69281, 1386.37, 161.193, -1.41495)
+mesh = SubResource("PlaneMesh_vciy1")
+
+[node name="MeshInstance3D8" parent="Background" instance=ExtResource("19_lbew1")]
+transform = Transform3D(8.69281, 0, 0, 0, 10.5803, 0, 0, 0, 8.69281, 1500.25, 135.383, -1.41495)
+mesh = SubResource("PlaneMesh_fbnvu")
+
+[node name="MeshInstance3D9" parent="Background" instance=ExtResource("19_lbew1")]
+transform = Transform3D(8.69281, 0, 0, 0, 10.5803, 0, 0, 0, 8.69281, 1547.69, 135.383, -1.41495)
+mesh = SubResource("PlaneMesh_eqaky")
+
+[node name="MeshInstance3D11" parent="Background" instance=ExtResource("19_lbew1")]
+transform = Transform3D(8.69281, 0, 0, 0, 10.5803, 0, 0, 0, 8.69281, 2801.22, -215.254, -4.87466)
+mesh = SubResource("PlaneMesh_ig3js")
+
+[node name="MeshInstance3D12" parent="Background" instance=ExtResource("19_lbew1")]
+transform = Transform3D(8.69281, 0, 0, 0, 10.5803, 0, 0, 0, 8.69281, 2855.24, -215.254, -4.87466)
+mesh = SubResource("PlaneMesh_ehyvm")
+
+[node name="MeshInstance3D13" parent="Background" instance=ExtResource("19_lbew1")]
+transform = Transform3D(6.70427, 0, 0, 0, 8.15996, 0, 0, 0, 6.70427, 2895.45, -219.077, -4.87466)
+mesh = SubResource("PlaneMesh_fr755")
+
+[node name="MeshInstance3D14" parent="Background" instance=ExtResource("19_lbew1")]
+transform = Transform3D(6.70427, 0, 0, 0, 8.15996, 0, 0, 0, 6.70427, 2936.42, -219.077, -4.87466)
+mesh = SubResource("PlaneMesh_xwkub")
+
+[node name="MeshInstance3D15" parent="Background" instance=ExtResource("19_lbew1")]
+transform = Transform3D(4.88207, 0, 0, 0, 5.94211, 0, 0, 0, 4.88207, 2914.55, -220.968, 1.69532)
+mesh = SubResource("PlaneMesh_3t715")
+
+[node name="MeshInstance3D20" parent="Background" instance=ExtResource("19_lbew1")]
+transform = Transform3D(4.88207, 0, 0, 0, 5.94211, 0, 0, 0, 4.88207, 2958.38, -220.968, 1.69532)
+mesh = SubResource("PlaneMesh_dqs8n")
+
+[node name="MeshInstance3D21" parent="Background" instance=ExtResource("19_lbew1")]
+transform = Transform3D(4.88207, 0, 0, 0, 5.94211, 0, 0, 0, 4.88207, 2876.54, -220.968, 1.69532)
+mesh = SubResource("PlaneMesh_dqs8n")
+
+[node name="MeshInstance3D22" parent="Background" instance=ExtResource("19_lbew1")]
+transform = Transform3D(4.88207, 0, 0, 0, 5.94211, 0, 0, 0, 4.88207, 2780.66, -220.968, 1.69532)
+mesh = SubResource("PlaneMesh_dqs8n")
+
+[node name="MeshInstance3D16" parent="Background" instance=ExtResource("19_lbew1")]
+transform = Transform3D(4.88207, 0, 0, 0, 5.94211, 0, 0, 0, 4.88207, 2877.66, -220.968, 1.69532)
+mesh = SubResource("PlaneMesh_3t715")
+
+[node name="MeshInstance3D17" parent="Background" instance=ExtResource("19_lbew1")]
+transform = Transform3D(4.88207, 0, 0, 0, 5.94211, 0, 0, 0, 4.88207, 2835.05, -220.968, 1.69532)
+mesh = SubResource("PlaneMesh_3t715")
+
+[node name="MeshInstance3D18" parent="Background" instance=ExtResource("19_lbew1")]
+transform = Transform3D(4.88207, 0, 0, 0, 5.94211, 0, 0, 0, 4.88207, 2820.75, -220.968, 1.69532)
+mesh = SubResource("PlaneMesh_3t715")
+
+[node name="MeshInstance3D19" parent="Background" instance=ExtResource("19_lbew1")]
+transform = Transform3D(4.88207, 0, 0, 0, 5.94211, 0, 0, 0, 4.88207, 2768.65, -220.968, 1.69532)
+mesh = SubResource("PlaneMesh_3t715")
+
+[node name="MeshInstance3D10" type="MeshInstance3D" parent="Background"]
+transform = Transform3D(5.64769, 0, 0, 0, 5.64769, 0, 0, 0, 5.64769, 2246.82, -64.1736, -496.066)
+mesh = SubResource("PlaneMesh_jxhcx")
+
 [node name="StartPoint" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.21796, 330.683, 0)
 
@@ -155,3 +398,22 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1828.53, -76.2669, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2631.76, -260.159, 0)
 
 [editable path="Bike"]
+[editable path="Background/MeshInstance3D3"]
+[editable path="Background/MeshInstance3D4"]
+[editable path="Background/MeshInstance3D5"]
+[editable path="Background/MeshInstance3D6"]
+[editable path="Background/MeshInstance3D7"]
+[editable path="Background/MeshInstance3D8"]
+[editable path="Background/MeshInstance3D9"]
+[editable path="Background/MeshInstance3D11"]
+[editable path="Background/MeshInstance3D12"]
+[editable path="Background/MeshInstance3D13"]
+[editable path="Background/MeshInstance3D14"]
+[editable path="Background/MeshInstance3D15"]
+[editable path="Background/MeshInstance3D20"]
+[editable path="Background/MeshInstance3D21"]
+[editable path="Background/MeshInstance3D22"]
+[editable path="Background/MeshInstance3D16"]
+[editable path="Background/MeshInstance3D17"]
+[editable path="Background/MeshInstance3D18"]
+[editable path="Background/MeshInstance3D19"]

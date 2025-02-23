@@ -1,13 +1,18 @@
-[gd_scene load_steps=5 format=3 uid="uid://dxnjwnemyjfi2"]
+[gd_scene load_steps=6 format=3 uid="uid://dxnjwnemyjfi2"]
 
 [ext_resource type="PackedScene" uid="uid://b2w80cyadsfv2" path="res://Areas/Platforms/PlatformRectangle.tscn" id="1_msr6j"]
-[ext_resource type="Material" uid="uid://6bihttqockcd" path="res://assets/Textures/texture_woodenruler.tres" id="2_1v21j"]
+[ext_resource type="Texture2D" uid="uid://b63p60f5uyvg0" path="res://assets/Textures/wooden_ruler.jpg" id="2_h1l2q"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_mghq7"]
 size = Vector3(102.917, 8, 3)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_id40y"]
+transparency = 1
+albedo_texture = ExtResource("2_h1l2q")
+texture_filter = 0
+
 [sub_resource type="BoxMesh" id="BoxMesh_lnn8q"]
-material = ExtResource("2_1v21j")
+material = SubResource("StandardMaterial3D_id40y")
 size = Vector3(102.91, 8, 1.5)
 
 [node name="Area7" type="Node3D"]
