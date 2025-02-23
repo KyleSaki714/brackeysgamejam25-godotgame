@@ -3,6 +3,7 @@ extends Area3D
 class_name Trigger
 
 enum TRIGGER_TYPES {
+	DEEATH,
 	ENDGAME,
 	SUNSET,
 	NIGHTTIME

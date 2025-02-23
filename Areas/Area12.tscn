@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://ubmespmj3gkq"]
+[gd_scene load_steps=11 format=3 uid="uid://ubmespmj3gkq"]
 
 [ext_resource type="PackedScene" uid="uid://b2w80cyadsfv2" path="res://Areas/Platforms/PlatformRectangle.tscn" id="1_f570g"]
 [ext_resource type="Material" uid="uid://c1448lhcffexi" path="res://assets/Textures/Texture_LinedPaper.tres" id="2_kq0cj"]
 [ext_resource type="Texture2D" uid="uid://vcw0w27hirda" path="res://assets/Textures/Write_Your_Story_Blank_Lined_Notebook_Paper_Creative_Commons_(4812267249).jpg" id="3_6q551"]
 [ext_resource type="PackedScene" uid="uid://cm2qqx4xalftm" path="res://Areas/Platforms/PlatformCustomCurves.tscn" id="3_gk7t5"]
+[ext_resource type="PackedScene" uid="uid://b7vwnfo1c06rm" path="res://Areas/Triggers/DeathTrigger.tscn" id="5_x8ad0"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_wsbhf"]
 size = Vector3(30, 1, 3)
@@ -32,7 +33,6 @@ point_count = 13
 [node name="Area12" type="Node3D"]
 
 [node name="PlatformRectangle4" parent="." instance=ExtResource("1_f570g")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 
 [node name="CollisionShape3D" parent="PlatformRectangle4" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.9194, -0.5, 0)
@@ -65,6 +65,13 @@ skeleton = NodePath("../..")
 [node name="Path3D" parent="PlatformCustomCurves" index="1"]
 curve = SubResource("Curve3D_ngik5")
 
+[node name="DeathTrigger" parent="." instance=ExtResource("5_x8ad0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -60, 0)
+
+[node name="CollisionShape3D" parent="DeathTrigger" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 61.2269, 0, 0)
+
 [editable path="PlatformRectangle4"]
 [editable path="PlatformRectangle5"]
 [editable path="PlatformCustomCurves"]
+[editable path="DeathTrigger"]

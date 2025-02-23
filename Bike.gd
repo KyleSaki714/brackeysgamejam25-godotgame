@@ -1,5 +1,8 @@
 extends VehicleBody3D
 
+var death_body = preload("res://death_body.tscn")
+var death_backpack = preload("res://death_backpack.tscn")
+
 @onready var _graphics = $Graphics
 @onready var _wheel1 = $VehicleWheel3D
 @onready var _wheel2 = $VehicleWheel3D2
@@ -22,7 +25,7 @@ var _isGrounded = false
 # POWERUPS
 var _unlockedSpeed = false
 
-var _gameEnd = false
+var _lockBike = false
 
 #enum {
 	#COASTING,
@@ -62,7 +65,7 @@ func _physics_process(delta: float):
 	# - GAS -
 	var cycling = Input.get_axis("backward", "forward")
 	checkCycleAnim(cycling)
-	if not _gameEnd and cycling:
+	if not _lockBike and cycling:
 		engine_force += cycling * ENGINE_ACCEL
 		engine_force = clampf(engine_force, ENGINE_POWER * -1, ENGINE_POWER)
 	else:
@@ -74,7 +77,7 @@ func _physics_process(delta: float):
 	# apply torque
 	var tiltAxis = Input.get_axis("tilt left", "tilt right")
 	checkTiltAnim(tiltAxis)
-	if (not _gameEnd and tiltAxis != 0):
+	if (not _lockBike and tiltAxis != 0):
 		var torqueConstant = tiltAxis * _torquePower * -1
 		#print(PhysicsServer3D.body_get_direct_state(get_rid()).inverse_inertia)
 		apply_torque(transform.basis.z * torqueConstant)
@@ -92,10 +95,20 @@ func _physics_process(delta: float):
 		_currentCenterOfMassShift = 0
 		center_of_mass_mode = CENTER_OF_MASS_MODE_AUTO
 
+func death():
+	$Graphics.hide()
+	
+	var dbinstance = death_body.instantiate()
+	get_tree().root.add_child(dbinstance)
+	dbinstance.global_position = global_position
+	
+	var dbinstance2 = death_backpack.instantiate()
+	get_tree().root.add_child(dbinstance2)
+	dbinstance2.global_position = global_position
 	
 
 func checkCycleAnim(axisValue):
-	if _gameEnd:
+	if _lockBike:
 		$Graphics/Legs.stop()
 		return
 	
@@ -107,7 +120,7 @@ func checkCycleAnim(axisValue):
 		$Graphics/Legs.stop()
 
 func checkTiltAnim(axisValue):
-	if _gameEnd:
+	if _lockBike:
 		$Graphics/Coast.show()
 		$Graphics/LeanBack.hide()
 		$Graphics/LeanForward.hide()
@@ -138,8 +151,12 @@ func _on_area_manager_area_exited(area: Powerup) -> void:
 
 func _on_area_manager_area_entered_trigger(area: Trigger) -> void:
 	print("phart")
-	if area.trigger_type == Trigger.TRIGGER_TYPES.ENDGAME:
-		_gameEnd = true
+	if area.trigger_type == Trigger.TRIGGER_TYPES.DEEATH:
+		_lockBike = true
+		death()
+		
+	elif area.trigger_type == Trigger.TRIGGER_TYPES.ENDGAME:
+		_lockBike = true
 		await get_tree().create_timer(5.0).timeout
 		get_tree().change_scene_to_file("res://Screens/EndScreen.tscn")
 

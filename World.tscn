@@ -1,6 +1,7 @@
-[gd_scene load_steps=21 format=3 uid="uid://cde7rcehautca"]
+[gd_scene load_steps=22 format=3 uid="uid://cde7rcehautca"]
 
 [ext_resource type="PackedScene" uid="uid://dg6p1qquywry7" path="res://Bike.tscn" id="2_pbg5e"]
+[ext_resource type="PackedScene" uid="uid://b7vwnfo1c06rm" path="res://Areas/Triggers/DeathTrigger.tscn" id="3_kvqua"]
 [ext_resource type="PackedScene" uid="uid://bi7rb6kshvy0f" path="res://GameCamera.tscn" id="3_lk8vx"]
 [ext_resource type="Script" path="res://GameManager.gd" id="4_4my16"]
 [ext_resource type="PackedScene" uid="uid://dcptis54g1co7" path="res://Areas/AreaStartRamp.tscn" id="5_2fkej"]
@@ -37,12 +38,15 @@ orientation = 2
 environment = SubResource("Environment_3mh0e")
 
 [node name="Bike" parent="." instance=ExtResource("2_pbg5e")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2963.33, -228.039, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2773.75, -210.806, 0)
 
 [node name="GameCamera" parent="." node_paths=PackedStringArray("_follow_target", "_look_target") instance=ExtResource("3_lk8vx")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2971.68, -229.069, 49.7549)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2782.1, -228.961, 49.7549)
 _follow_target = NodePath("../Bike/CamFollowTarget")
 _look_target = NodePath("../Bike/CamLookTarget")
+
+[node name="DeathTrigger" parent="." instance=ExtResource("3_kvqua")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2798.25, -220.38, 0)
 
 [node name="GameManager" type="Node3D" parent="."]
 script = ExtResource("4_4my16")
